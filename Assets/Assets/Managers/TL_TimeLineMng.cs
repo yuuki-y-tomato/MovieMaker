@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,25 +17,37 @@ public class TL_TimeLineMng : MonoBehaviour
 
     static public float ctime;
     static public float delta;
-    public float mult=1;
-    public float d;
-    private float prevtime;
-
+    static public float mult=1;
+    private float tst=0;
+    public float multplier=1;
     void Start()
     {
-        prevtime=Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        mult=multplier;
+        if(tst>1)
+        {
+
+        delta=Time.deltaTime*mult;
+        ctime+=delta;
+        }
+                tst+=Time.deltaTime;
+
+        
         if(Input.GetKey(KeyCode.R))
         {
             ctime=0;
+            tst=0;
         }
-        
-        delta=Time.deltaTime*mult;
-        ctime+=delta;
-        
+
+    }
+
+
+    private void OnGUI() {
+        GUI.Box(new Rect(Screen.width/2,10,400,20),ctime.ToString("F6"));
     }
 }

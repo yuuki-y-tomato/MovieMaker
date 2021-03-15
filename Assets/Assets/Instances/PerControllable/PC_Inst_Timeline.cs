@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +27,6 @@ public struct Event_Instance_st
 
     public float start;
     public float end;
-
     public Event_Instance_st( PC_Control.Input_st TYPE,float START,float END)
     {
      this.type=   TYPE;
@@ -38,10 +38,11 @@ public struct Event_Instance_st
 
 }
 
+    public bool EListCut=false;
 
-private List<Event_Instance_st> EventList;
+public List<Event_Instance_st> EventList;
     // Start is called before the first frame update
-
+public int eventcount;
     void Start()
     {
         EventList=new List<Event_Instance_st>();
@@ -51,7 +52,7 @@ private List<Event_Instance_st> EventList;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E)){
-        string st="TYPES\n";
+        string st="TYPES : COUNT : "+EventList.Count+"\n";
         int a=0;
         foreach(var b in EventList)
         {  
@@ -63,7 +64,7 @@ private List<Event_Instance_st> EventList;
 
         }
 
-
+        eventcount=EventList.Count; 
     }
 
 //* USED WHEN MANIPULATIG TIMELINE
@@ -86,40 +87,49 @@ static int SortByTime(Event_Instance_st a,Event_Instance_st b)
 /// * CREATE NEW EVENT AND REMOVE EVENT LATER THAN THAT
 /// </summary>
 /// <param name="type"></param>
-   public void CreateEvent(PC_Control.Input_st type)
+   public void CreateEvent(PC_Control.Input_st type,float t)
     {
-        EventList.Sort(SortByTime);
 
-        float t=TL_TimeLineMng.ctime;
+//        float t=time;
         int LatestIndex=0;
 
+    //* FIND EVENT AFTER CURRENT TIME
 
-        foreach(var b in EventList)
+    //* IF NO EVENT IS PRESENT
+        if(EventList.Count==0)
         {
-            if(b.start<t)//*occured later than new instance
-            {
-       LatestIndex=EventList.IndexOf(b);
-       break;
-            }
+             EventList.Add(new Event_Instance_st(type,t,0));
         }
-        //*REMOVE ALL FURTHER INSTANCES
-//    EventList.RemoveRange(LatestIndex,EventList.Count-LatestIndex);
-
-
-
+        else
+        {//* IF NO OVERWRITE IS REQUIRED
+    if(EventList[EventList.Count-1].start<t)
     {
-    int a=FindLater(t);
-        if(a!=-1)
+    EventList.Add(new Event_Instance_st(type,t,0));
+    }
+    else
+    {
+    for (var i = 1; i < EventList.Count-1;i++)
+    {
+        if(EventList[i-1].start<t&&EventList[i+1].start>t)
         {
+            LatestIndex=i;
+        break;
 
         }
     }
+    //*LATEST inDEX is ALWAyS 0
+    Debug.Log((EventList.Count-LatestIndex).ToString()+":"+EventList.Count.ToString());
+        EventList.RemoveRange(LatestIndex,EventList.Count-LatestIndex);
+
+        
+        EventList.Insert(LatestIndex,new Event_Instance_st(type,t,0));
+
+        EListCut=true;
+
+    }
 
 
-
-        //*APPEND NEW EVENT
-    EventList.Add(new Event_Instance_st(type,t,0));
-
+}
 
     Debug.Log(name+":"+type.ToString()+":"+t.ToString("F6"));
 
@@ -161,40 +171,55 @@ static int SortByTime(Event_Instance_st a,Event_Instance_st b)
 
         int index=-1;
         float t=TL_TimeLineMng.ctime;
-/*
-        foreach(var b in EventList)
-        {
-            if(b.start<t)
+
+///* TO PREVENT NULL REFERENCE ON NO ITEM BEING ON THE LIST
+if(EventList.Count>0){
+
+        for (var i = 0; i < EventList.Count-1; i++)
             {
-             index=EventList.IndexOf(b);
-            break;
+                //* IF CURRENT ITEM (i) IS ALREADY OCCURRED AND SUBSEQUENT ONE HASN'T, RETURN INDEX
+                if(EventList[i].start<t&&EventList[i+1].start>t)
+                    {
+                        index=i;
+                        break;
+                    }
             }
-        }*/
-        //*COUNTS UP FROM START TO END
-        for (var i = 0; i < EventList.Count; i++)
+
+        if(index!=-1){//* IF RETURNED INDEX IS UPDATED
+            return EventList[index+1];
+        }else
         {
-            //*IF CURRENT OCCURED LATER THAN TIME
-            if(t<EventList[i].start)//*POINTS TO NEXT EVENT
-            {
-                index=i-1;
-                break;
+            ///* IN CSAE 2 TIME OVERWRAP
+           if(EventList.Count>2){
+            if(Math.Abs(EventList[EventList.Count-1].start-EventList[EventList.Count-2].start)<0.01)
+                {
+                    EventList[EventList.Count-1]=new Event_Instance_st(EventList[EventList.Count-1].type,EventList[EventList.Count-1].start+0.01f,0);                
+                    return EventList[EventList.Count-2];
+
+                }
             }
-            
+            //* IF NOT THEN LATEST EVENT IS THE LAST EVENT
+        return  EventList[EventList.Count-1];
+
+                 //       return new Event_Instance_st(PC_Control.Input_st.NULL,0,0);
+
         }
+    }
+    return new Event_Instance_st(PC_Control.Input_st.NULL,0,0);
 
-
-        return EventList[index];
     }
 
     public Event_Instance_st FindNext(Event_Instance_st cur)
     {
         if(EventList.Count>1){
+        if(EventList.Count>EventList.IndexOf(cur)+1){
               return EventList[EventList.IndexOf(cur)+1];
         }else
         {
-            return new Event_Instance_st(PC_Control.Input_st.NULL,0,0);
+            return EventList[EventList.Count-1];
         }
-
+        }
+        return GetZero();
     }
 
     public Event_Instance_st GetZero()
@@ -208,5 +233,8 @@ static int SortByTime(Event_Instance_st a,Event_Instance_st b)
             return new Event_Instance_st(PC_Control.Input_st.NULL,0,0);
         }
     }
+
+
+
 
 }
