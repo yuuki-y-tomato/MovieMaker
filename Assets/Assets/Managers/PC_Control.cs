@@ -48,6 +48,8 @@ public class PC_Control : MonoBehaviour
     void Update()
     {
 
+
+
         if(localTime>TL_TimeLineMng.ctime)
         {
             Iactive=new bool[6];
@@ -56,7 +58,7 @@ public class PC_Control : MonoBehaviour
         localTime=TL_TimeLineMng.ctime;
        
 
-        if(Input.GetKey(KeyCode.W))
+        if(UT_InputFilter.GetU())
         {
             if(!Iactive[(int)Input_st.W/2]){
             Ilist.Add(Input_st.W);
@@ -72,7 +74,7 @@ public class PC_Control : MonoBehaviour
            // TargetTL.CreateEvent(Input_st.Wr);
         }
 
-        if(Input.GetKey(KeyCode.LeftArrow))
+        if(UT_InputFilter.GetL())
         {
             if(!Iactive[(int)Input_st.A/2]){
 
@@ -92,7 +94,7 @@ public class PC_Control : MonoBehaviour
         }
 
 
-       if(Input.GetKey(KeyCode.S))
+       if(UT_InputFilter.GetD())
         {
             if(!Iactive[(int)Input_st.S/2]){
 
@@ -110,7 +112,7 @@ public class PC_Control : MonoBehaviour
         //    TargetTL.CreateEvent(Input_st.Sr);
         }
 
-           if(Input.GetKey(KeyCode.RightArrow))
+           if(UT_InputFilter.GetR())
         {
             if(!Iactive[(int)Input_st.D/2]){
 
@@ -130,7 +132,7 @@ public class PC_Control : MonoBehaviour
         }
 
 
-        if(Input.GetKey(KeyCode.Space))
+        if(UT_InputFilter.GetX())
         {
             if(!Iactive[(int)Input_st.Space/2]){
 

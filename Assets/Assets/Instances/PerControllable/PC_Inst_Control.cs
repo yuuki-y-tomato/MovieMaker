@@ -12,7 +12,7 @@ public class PC_Inst_Control : MonoBehaviour
     //* REQ
     //* 
     //* PERFORM START AND END EVENTS
-    //*
+    //* SEND INPUT TO CONTROLLABLES
     //*
     //*
 
@@ -26,16 +26,13 @@ public class PC_Inst_Control : MonoBehaviour
     private float LocalTimer;
    private PC_Inst_Timeline Timeline_Ref;
     //*INTERFACE TO INSTANCE TIMELINE
-    private Rigidbody2D rb;
 
     private Vector3 DefPos;
-
+    private PC_Base ActorRef;
     void Start()
     {
+        ActorRef=GetComponent<PC_Base>();
 
-
-        rb=GetComponent<Rigidbody2D>();
-        rb.gravityScale=0;
     Input_States=new int[7];
     for (var i = 0; i < Input_States.Length; i++)
     {
@@ -59,7 +56,7 @@ public class PC_Inst_Control : MonoBehaviour
 {
     //*RESET POSITION
     GetComponent<Transform>().position=DefPos;
-    rb.velocity=new Vector2();
+
 
     ClearInput();
     //* REINITIALIZE INPUT STATES
@@ -104,8 +101,10 @@ if(NextInput.start<LocalTimer)
     {
     
         //*PRESSED 1 , RELEASE EVENT 2, INACTIVE 0
-        Input_States[(int)NextInput.type/2]=((int)NextInput.type%2);
-        
+
+ 
+ //       Input_States[(int)NextInput.type/2]=((int)NextInput.type%2);
+        ActorRef.DispatchEvent(((int)NextInput.type));
         //*Get next input event
         NextInput=Timeline_Ref.FindNext(NextInput);
 

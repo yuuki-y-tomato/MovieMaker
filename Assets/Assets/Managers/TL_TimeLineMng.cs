@@ -18,6 +18,8 @@ public class TL_TimeLineMng : MonoBehaviour
     static public float ctime;
     static public float delta;
     static public float mult=1;
+    public float max;
+    public static float Max_acc;
     private float tst=0;
     public float multplier=1;
     void Start()
@@ -27,13 +29,17 @@ public class TL_TimeLineMng : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Max_acc=max;
 
         mult=multplier;
         if(tst>1)
         {
 
         delta=Time.deltaTime*mult;
+        if(ctime<Max_acc)
+        {
         ctime+=delta;
+        }
         }
                 tst+=Time.deltaTime;
 

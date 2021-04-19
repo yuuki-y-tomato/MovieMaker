@@ -33,7 +33,10 @@ public class UI_Inst_EventIcon : MonoBehaviour
            
             set=true;
         }
-        AnimationEvent ae;
+
+
+        
+
     }
 
 
