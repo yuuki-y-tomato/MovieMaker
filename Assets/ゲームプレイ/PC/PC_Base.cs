@@ -1,37 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+///* キャラクターベースクラス
+///* 入力状態管理してあるので派生してキャラクター種類を増やせます
+/// 
+/// </summary>
 public class PC_Base : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-
-
-    public PC_Inst_Control cont_ref;
-    public Transform T;
-
-    public Vector3 Init_P;
-
-    public bool Cir,Squ,Tri,X;
-    public bool Left,Up,Down,Right;
+    /// <summary>
+    ///*初期座標　リセット用
+    /// </summary>
     
-    private float timer;
+    protected bool Cir,Squ,Tri,X;
+    protected bool Left,Up,Down,Right;
 
-    void Start()
-    {
-      
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
-
+    /// <summary>
+    ///* PC_Inst_Controlから呼ばれ入力状態をアップデートする
+    ///*
+    /// </summary>
+    /// <param name="id"></param>
    public void DispatchEvent(int id)
     {
 
@@ -92,6 +80,6 @@ public class PC_Base : MonoBehaviour
             Left=false;
         }
         
-        timer=TL_TimeLineMng.ctime;
+        
     }
 }

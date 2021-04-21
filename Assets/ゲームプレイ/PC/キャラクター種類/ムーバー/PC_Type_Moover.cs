@@ -3,18 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 横移動とジャンプのできるキャラクター
+/// </summary>
 public class PC_Type_Moover : PC_Base
 {
-    // Start is called before the first frame update
+    
+    private Transform T;
 
-
- public Vector2 vel;
  public float vertical_vel;
  public float horizontal_vel;
  
 public float speed;
 
-public float drag;
+public float drag=0.7f;
 
 float jumpTimer;
 bool jumping;
@@ -30,14 +32,12 @@ Physics2D.IgnoreLayerCollision(3,3);
 
 
    
-        cont_ref= GetComponent<PC_Inst_Control>();
+     
         T=GetComponent<Transform>();
-        
-        Init_P=GetComponent<Transform>().position;
 
      rb=GetComponent<Rigidbody2D>();
 
-        vel=new Vector2();
+
     }
 
     // Update is called once per frame
@@ -53,12 +53,11 @@ Physics2D.IgnoreLayerCollision(3,3);
 
     T.position+=new Vector3(horizontal_vel,vertical_vel,0);
     
-    horizontal_vel*=0.7f;
+    horizontal_vel*=drag;
 
 if(Input.GetKey(KeyCode.R))
 {
     rb.velocity=new Vector2();
-    vel=new Vector2();
 }
 
     }

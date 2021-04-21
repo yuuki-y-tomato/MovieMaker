@@ -50,7 +50,7 @@ public class UI_Inst_TL : MonoBehaviour
     }
 
 
-    UI_TL_inst_Icon GetIcon(PC_Inst_Timeline.Event_Instance_st ev)
+    UI_TL_inst_Icon GetIcon(PC_Inst_Timeline.Input_Event_st ev)
     {
         UI_TL_inst_Icon buf=new UI_TL_inst_Icon();
         buf.Event=ev;

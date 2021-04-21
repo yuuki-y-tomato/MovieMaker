@@ -2,54 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 今操作しているキャラクターに入力情報を送る
+/// </summary>
 public class PC_Control : MonoBehaviour
 {
 /// <summary>
-///* HANDLES ALL INPUT TO THE ENTITY
-///* THEN SEND THEM TO THE TIMELINE
+/// インプット種類
+///  #:ボタン押し　#r:ボタン放し
 /// </summary>
-
-//* REQUIREMENT 
-//* ADD INPUT TO TIMELINE
-//* 
-//*
-//*
-//*
     public enum Input_st
     {
         W,Wr,A,Ar,S,Sr,D,Dr,Space,Spacer,Shift,Shiftr,Latest,NULL
 
     }
-
-    static List<int> InputState;
-    private List<int> InputEvent;
-
-    private int id;
-    // Start is called before the first frame update
-
+/// <summary>
+/// 現在操作しているキャラクターのインプット記録リスト
+/// </summary>
     public static PC_Inst_Timeline TargetTL;
-
+/// <summary>
+/// タイマー.  時間がリセットされた時初期化するため
+/// </summary>
     public float localTime;
 
-    List<Input_st> Ilist;
+/// <summary>
+///　入力状態を記録、ボタンを押していても同じイベントが何度も作られないため
+/// </summary>
     bool[] Iactive;
+
+/// <summary>
+/// 現フレームの入力のリスト
+/// </summary>
+    List<Input_st> Ilist;
+
     void Start()
     {
         Iactive=new bool[6];
         TargetTL=FindObjectOfType<PC_Inst_Timeline>();
-        InputEvent=new List<int>();
-        InputState=new List<int>();
-        id=0;
         Ilist=new List<Input_st>();
     }
 
-    // Update is called once per frame
-
     void Update()
     {
-
-
-
+        //タイマーリセットしたら入力もリセット
         if(localTime>TL_TimeLineMng.ctime)
         {
             Iactive=new bool[6];
@@ -64,14 +59,13 @@ public class PC_Control : MonoBehaviour
             Ilist.Add(Input_st.W);
             Iactive[(int)Input_st.W/2]=true;
             }
-//            TargetTL.CreateEvent(Input_st.W);
+
         }else
         if(Iactive[(int)Input_st.W/2])
         {
             Ilist.Add(Input_st.Wr);
             Iactive[(int)Input_st.W/2]=false;
 
-           // TargetTL.CreateEvent(Input_st.Wr);
         }
 
         if(UT_InputFilter.GetL())
@@ -81,7 +75,7 @@ public class PC_Control : MonoBehaviour
             Ilist.Add(Input_st.A);
             Iactive[(int)Input_st.A/2]=true;
             }
-          //  TargetTL.CreateEvent(Input_st.A);
+
         }
         else
         if(Iactive[(int)Input_st.A/2])
@@ -90,7 +84,6 @@ public class PC_Control : MonoBehaviour
             Iactive[(int)Input_st.A/2]=false;
 
 
-         //   TargetTL.CreateEvent(Input_st.Ar);
         }
 
 
@@ -101,7 +94,7 @@ public class PC_Control : MonoBehaviour
             Ilist.Add(Input_st.S);
             Iactive[(int)Input_st.S/2]=true;
             }
-        //    TargetTL.CreateEvent(Input_st.S);
+
         }else
         if(Iactive[(int)Input_st.S/2])
         {
@@ -109,7 +102,7 @@ public class PC_Control : MonoBehaviour
 
             Ilist.Add(Input_st.Sr);
 
-        //    TargetTL.CreateEvent(Input_st.Sr);
+
         }
 
            if(UT_InputFilter.GetR())
@@ -120,7 +113,7 @@ public class PC_Control : MonoBehaviour
 
             Ilist.Add(Input_st.D);
             }
-         //   TargetTL.CreateEvent(Input_st.D);
+
         }else
         if(Iactive[(int)Input_st.D/2])
         {
@@ -128,7 +121,7 @@ public class PC_Control : MonoBehaviour
 
             Ilist.Add(Input_st.Dr);
 
-        //    TargetTL.CreateEvent(Input_st.Dr);
+
         }
 
 
@@ -140,7 +133,6 @@ public class PC_Control : MonoBehaviour
 
             Ilist.Add(Input_st.Space);
             }
-           // TargetTL.CreateEvent(Input_st.Space);
         }else
         if(Iactive[(int)Input_st.Space/2])
         {
@@ -148,10 +140,10 @@ public class PC_Control : MonoBehaviour
 
             Ilist.Add(Input_st.Spacer);
 
-//            TargetTL.CreateEvent(Input_st.Spacer);
+
         }
 
-
+    
     for (var i = 0; i < Ilist.Count; i++)
     {  
        TargetTL.CreateEvent(Ilist[i],localTime+(0.001f*i));

@@ -10,13 +10,13 @@ public class UI_TL_inst_Icon : MonoBehaviour
     public float TLwidth;
     public RectTransform ParentPos;
     private RectTransform Pos;
-    public PC_Inst_Timeline.Event_Instance_st Event;
+    public PC_Inst_Timeline.Input_Event_st Event;
 
     void Start()
     {
  
     }
-    public void init(PC_Inst_Timeline.Event_Instance_st ev)
+    public void init(PC_Inst_Timeline.Input_Event_st ev)
     {
         Event=ev; 
         //* GET TIMELINE SIZE

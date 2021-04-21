@@ -17,7 +17,7 @@ public class UI_TL_EventList : MonoBehaviour
 
 //* C___ Current TARGETED TIMELINE
     private PC_Inst_Timeline CTarget;
-    public List<PC_Inst_Timeline.Event_Instance_st> CEventList;
+    public List<PC_Inst_Timeline.Input_Event_st> CEventList;
 
 //* ISNTANCES OF UI POPUP
     public UI_TL_IN_EVENT[] EventUIList;

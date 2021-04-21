@@ -7,7 +7,7 @@ public class UI_TL_IN_EVENT : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public PC_Inst_Timeline.Event_Instance_st Event;
+    public PC_Inst_Timeline.Input_Event_st Event;
     private Transform T;
     public string txt;
     
@@ -22,7 +22,7 @@ public class UI_TL_IN_EVENT : MonoBehaviour
     private void Awake()
      {
         res=Screen.height/10;
-        Event=new PC_Inst_Timeline.Event_Instance_st();
+        Event=new PC_Inst_Timeline.Input_Event_st();
         T=GetComponent<Transform>();
         txt=Event.type.ToString();
 

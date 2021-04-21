@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// *対応キャラクターに記録された入力を送る
+/// </summary>
 public class PC_Inst_Control : MonoBehaviour
 {
-    // Start is called before the first frame update
-    /// <summary>
-    /// * DISPATCH LIST OF CURRENTLY ACTIVE INPUT TO CHILD
-    /// </summary>
+
     //*
     //* REQ
     //* 
@@ -18,28 +18,38 @@ public class PC_Inst_Control : MonoBehaviour
 
 
 /// <summary>
-///* LIST OF INPUTS THAT CURRENTLY ACTIVE
+///*今の時間から見て次の入力
+///* 
 /// </summary>
-    public int[] Input_States;
-     public PC_Inst_Timeline.Event_Instance_st NextInput;
-
+     public PC_Inst_Timeline.Input_Event_st NextInput;
+/// <summary>
+///*現在時間
+/// </summary>
     private float LocalTimer;
+
+    /// <summary>
+    ///*入力の記録
+    /// </summary>
    private PC_Inst_Timeline Timeline_Ref;
     //*INTERFACE TO INSTANCE TIMELINE
 
+    /// <summary>
+    /// *初期座標　リセット用
+    /// </summary>
     private Vector3 DefPos;
+    /// <summary>
+    /// *対応キャラクター
+    /// </summary>
     private PC_Base ActorRef;
+
+    
     void Start()
     {
         ActorRef=GetComponent<PC_Base>();
 
-    Input_States=new int[7];
-    for (var i = 0; i < Input_States.Length; i++)
-    {
-        Input_States[i]=1;
-    }
+
     Timeline_Ref=GetComponentInParent<PC_Inst_Timeline>();
-    NextInput=new PC_Inst_Timeline.Event_Instance_st();
+    NextInput=new PC_Inst_Timeline.Input_Event_st();
     NextInput.type=PC_Control.Input_st.NULL;
     DefPos=GetComponent<Transform>().position;
     }
@@ -50,36 +60,16 @@ public class PC_Inst_Control : MonoBehaviour
     {
     
 //    Rigidbody2D b;
-        //* ON RESET
-        
+        //*リセット
         if(LocalTimer>TL_TimeLineMng.ctime)
-{
-    //*RESET POSITION
-    GetComponent<Transform>().position=DefPos;
-
-
-    ClearInput();
-    //* REINITIALIZE INPUT STATES
-
-
-
-        //*GET THE FIRST EVENT RECORDED
+        {
+            GetComponent<Transform>().position=DefPos;
             NextInput=Timeline_Ref.GetZero();
-}
+        }
 
         LocalTimer=TL_TimeLineMng.ctime;
 
-
-        if(LocalTimer<0.0001f)
-         {
-        ClearInput();
-        }   
-
-        if(Timeline_Ref.EListCut)
-        {
-            ClearInput();
-            Timeline_Ref.EListCut=false;
-        }
+  
 
 
 //*If NO EVENT FOUND
@@ -99,24 +89,15 @@ if(NextInput.start<LocalTimer)
 
     void UpdateInputStates()
     {
-    
-        //*PRESSED 1 , RELEASE EVENT 2, INACTIVE 0
-
- 
- //       Input_States[(int)NextInput.type/2]=((int)NextInput.type%2);
+        ///*対応したキャラクターに入力の情報を送る
+   
         ActorRef.DispatchEvent(((int)NextInput.type));
-        //*Get next input event
+        //*次のイベントを探す
         NextInput=Timeline_Ref.FindNext(NextInput);
 
     }
 
-  public  void ClearInput()
-    {
-        for (var i = 0; i < Input_States.Length; i++)
-    {
-        Input_States[i]=1;
-    }
-    }
+
 
 
 
