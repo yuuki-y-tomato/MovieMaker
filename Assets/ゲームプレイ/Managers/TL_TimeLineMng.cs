@@ -41,11 +41,18 @@ public class TL_TimeLineMng : MonoBehaviour
     /// リセット時少しの間ゲームが動かないようにする
     /// </summary>
     private float tst = 0;
-
+    private static  bool reset;
 
     // Update is called once per frame
     void Update()
     {
+
+        if(reset)
+        {
+            reset=false;
+            ctime = 0;
+            tst = 0;
+        }
         Max_acc = max;
 
         mult = multplier;
@@ -61,14 +68,13 @@ public class TL_TimeLineMng : MonoBehaviour
         tst += Time.deltaTime;
 
 
-        if (Input.GetKey(KeyCode.R))
-        {
-            ctime = 0;
-            tst = 0;
-        }
 
     }
 
+   public static void ResetTimer()
+    {
+        reset=true;
+    }
 
     private void OnGUI()
     {

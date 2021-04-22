@@ -5,9 +5,9 @@ using UnityEngine;
 
 
 
-    /// <summary>
-    /// キャラクター個体ごとのインプット記録
-    /// </summary>
+/// <summary>
+/// キャラクター個体ごとのインプット記録
+/// </summary>
 public class PC_Inst_Timeline : MonoBehaviour
 {
 
@@ -37,9 +37,15 @@ public class PC_Inst_Timeline : MonoBehaviour
     /// </summary>
     public List<Input_Event_st> EventList;
 
+    public PC_Base Target;
+    public PC_Inst_Control ControlRef;
+
+
     void Start()
     {
         EventList = new List<Input_Event_st>();
+        Target = GetComponent<PC_Base>();
+        ControlRef = GetComponent<PC_Inst_Control>();
     }
 
     // Update is called once per frame
@@ -80,7 +86,7 @@ public class PC_Inst_Timeline : MonoBehaviour
         }
         else
         {
-            // 最新イベントよりも後にイベントが起こった場合
+            // このインプットが最新の場合
             if (EventList[EventList.Count - 1].start < t)
             {
                 EventList.Add(new Input_Event_st(type, t));
@@ -97,12 +103,13 @@ public class PC_Inst_Timeline : MonoBehaviour
 
                     }
                 }
-                
+
                 //記録削除
                 EventList.RemoveRange(LatestIndex, EventList.Count - LatestIndex);
+                Target.ResetInput();
                 //記録追加
                 EventList.Insert(LatestIndex, new Input_Event_st(type, t));
-
+                ControlRef.CutException();
             }
 
 
@@ -132,10 +139,31 @@ public class PC_Inst_Timeline : MonoBehaviour
         return GetZero();
     }
 
-/// <summary>
-/// 最初のイベントを探す
-/// </summary>
-/// <returns></returns>
+    public Input_Event_st FindNext()
+    {
+        float t=TL_TimeLineMng.ctime;
+
+        //既にあるイベントを書き換える場合
+        for (var i = 1; i < EventList.Count - 1; i++)
+        {
+            if (EventList[i - 1].start < t && EventList[i + 1].start > t)
+            {
+                return EventList[i];
+            }
+        }
+
+        return new Input_Event_st(PC_Control.Input_st.NULL, 0);
+
+    }
+
+
+
+
+
+    /// <summary>
+    /// 最初のイベントを探す
+    /// </summary>
+    /// <returns></returns>
     public Input_Event_st GetZero()
     {
         if (EventList.Count > 0)

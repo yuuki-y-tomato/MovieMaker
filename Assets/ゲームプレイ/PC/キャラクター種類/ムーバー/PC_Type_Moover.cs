@@ -58,6 +58,7 @@ Physics2D.IgnoreLayerCollision(3,3);
 if(Input.GetKey(KeyCode.R))
 {
     rb.velocity=new Vector2();
+
 }
 
     }
@@ -82,9 +83,18 @@ void move()
     rb.AddForce(new Vector2(0,JumpHeght));
 
     }
-    if(!X)
+    if(!X&&Math.Abs(rb.velocity.y)<0.0001f)
     {
         jumping=false;
+    }
+
+
+    if(Input.GetKey(KeyCode.R))
+    {
+        TL_TimeLineMng.ResetTimer();
+        horizontal_vel=0;
+        vertical_vel=0;
+        ResetInput();
     }
 
 }
