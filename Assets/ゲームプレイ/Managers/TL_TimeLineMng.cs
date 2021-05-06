@@ -23,10 +23,6 @@ public class TL_TimeLineMng : MonoBehaviour
     /// </summary>
     static public float mult = 1;
 
-    /// <summary>
-    /// 時間速度外部アクセス用
-    /// </summary>
-    public float multplier = 1;
 
     /// <summary>
     /// タイムリミット
@@ -55,7 +51,7 @@ public class TL_TimeLineMng : MonoBehaviour
         }
         Max_acc = max;
 
-        mult = multplier;
+
         if (tst > 1)
         {
 

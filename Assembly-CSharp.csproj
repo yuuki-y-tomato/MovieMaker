@@ -47,11 +47,13 @@
      <Compile Include="Assets\ゲームプレイ\PC\入力管理\PC_Inst_Timeline.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\UT_InputFilter.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\UI_TL_EventList.cs" />
+     <Compile Include="Assets\ゲームプレイ\UI_Selection_Icon.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\入力管理\PC_Inst_Control.cs" />
      <Compile Include="Assets\ゲームプレイ\不必要\Instances\UT_Inst_Colpoints.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\UI_TL_IN_EVENT.cs" />
      <Compile Include="Assets\GP_SceneIcon.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_FC_TimelineFC.cs" />
+     <Compile Include="Assets\ゲームプレイ\PC\キャラクター種類\ムーバー\UT_FpsLimit.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\UI_TimeMeter.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_Inst_TL.cs" />
      <Compile Include="Assets\IS_MovingPlatform.cs" />
@@ -63,8 +65,7 @@
      <Compile Include="Assets\ゲームプレイ\PC\入力管理\PC_Inst_Chooser.cs" />
      <Compile Include="Assets\ゲームプレイ\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\TL_TimeLineMng.cs" />
-     <Compile Include="Assets\ゲームプレイ\UI_Selection_Icon.cs" />
-     <Compile Include="Assets\ゲームプレイ\PC\キャラクター種類\ムーバー\UT_FpsLimit.cs" />
+     <Compile Include="Assets\CAM_Replay.cs" />
      <None Include="Assets\ファイルタイトルについて.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:/UNITY/2020.2.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

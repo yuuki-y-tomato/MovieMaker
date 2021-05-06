@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TL_Entity
   - PCs
+  - TileMap
   layers:
   - Default
   - TransparentFX
