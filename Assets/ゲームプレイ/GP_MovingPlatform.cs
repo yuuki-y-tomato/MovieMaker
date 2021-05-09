@@ -5,6 +5,9 @@ using UnityEngine;
 public class GP_MovingPlatform : GP_GimmickBase
 {
     // Start is called before the first frame update
+
+
+    Rigidbody2D rb;
     void Start()
     {
         T=GetComponent<Transform>();
@@ -19,6 +22,7 @@ Camera camera=FindObjectOfType<Camera>();
  
         pos1.active=false;
         pos2.active=false;
+        rb=GetComponent<Rigidbody2D>();
         T.position=Startpos;
     
     }
@@ -30,6 +34,7 @@ Camera camera=FindObjectOfType<Camera>();
         {
             lerp=0;
             T.position=Startpos;
+            completed=false;
         }
         localtimer=TL_TimeLineMng.ctime;
     
@@ -53,9 +58,15 @@ Camera camera=FindObjectOfType<Camera>();
     {
         if(state&&lerp<1.0f)
         {
+          ///  rb.AddForce(Vector2.Lerp(Startpos,Endpos,lerp));
             T.position=Vector2.Lerp(Startpos,Endpos,lerp);
             lerp+=rate*TL_TimeLineMng.delta;
+        }else
+        if(lerp>=1.0f)
+        {
+            completed=true;
         }
+        
     }
 
    

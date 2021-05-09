@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_TL_inst_Icon.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\UI_Inst_EventIcon.cs" />
+     <Compile Include="Assets\ゲームプレイ\GP_GimmickBase.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG\TL_Manager.cs" />
      <Compile Include="Assets\ゲームプレイ\不必要\OBSOLETE\UT_CharIcon.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_FC_IconFactory.cs" />
@@ -59,6 +60,8 @@
      <Compile Include="Assets\ゲームプレイ\UI\MG\UI_TimeMeter.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_Inst_TL.cs" />
      <Compile Include="Assets\IS_MovingPlatform.cs" />
+     <Compile Include="Assets\ゲームプレイ\GP_MovingPlatform.cs" />
+     <Compile Include="Assets\ゲームプレイ\GP_Usable.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\PC_Base.cs" />
      <Compile Include="Assets\GP_I_SceneIcon.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG_StateMng.cs" />
@@ -68,9 +71,7 @@
      <Compile Include="Assets\ゲームプレイ\カメラエフェクト\Cam_EffectPlayer.cs" />
      <Compile Include="Assets\ゲームプレイ\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\TL_TimeLineMng.cs" />
-     <Compile Include="Assets\ゲームプレイ\GP_Usable.cs" />
-     <Compile Include="Assets\ゲームプレイ\GP_MovingPlatform.cs" />
-     <Compile Include="Assets\ゲームプレイ\GP_GimmickBase.cs" />
+     <Compile Include="Assets\CAM_Gameplay.cs" />
      <None Include="Assets\ファイルタイトルについて.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:/UNITY/2020.2.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
