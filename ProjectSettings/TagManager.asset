@@ -7,6 +7,8 @@ TagManager:
   - TL_Entity
   - PCs
   - TileMap
+  - LevelBoundary
+  - Usable
   layers:
   - Default
   - TransparentFX
