@@ -8,7 +8,7 @@ public class GP_GimmickBase : MonoBehaviour
 
     public bool completed;
 
-    virtual public void Event(bool state)
+  public virtual void Event(bool state, PC_Base User)
     {
         
     }

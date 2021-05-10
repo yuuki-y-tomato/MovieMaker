@@ -91,10 +91,12 @@ public class PC_Inst_Control : MonoBehaviour
     {
         ///*対応したキャラクターに入力の情報を送る
 
+        if(NextInput.type!=PC_Control.Input_st.Over)
+        {
         ActorRef.DispatchEvent(((int)NextInput.type));
         //*次のイベントを探す
         NextInput = Timeline_Ref.FindNext(NextInput);
-
+        }
     }
 
     public void CutException()

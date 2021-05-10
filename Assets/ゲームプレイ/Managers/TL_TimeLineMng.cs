@@ -80,9 +80,10 @@ public class TL_TimeLineMng : MonoBehaviour
     {
         reset=true;
     }
-
+/*
     private void OnGUI()
     {
         GUI.Box(new Rect(Screen.width / 2, 10, 400, 20), ctime.ToString("F6"));
     }
+*/
 }

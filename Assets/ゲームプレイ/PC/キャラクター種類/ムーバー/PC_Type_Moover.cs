@@ -11,9 +11,6 @@ public class PC_Type_Moover : PC_Base
 
     private Transform T;
 
-    public float vertical_vel;
-    public float horizontal_vel;
-
     public Vector3 velo;
 
     public float speed;
@@ -24,18 +21,18 @@ public class PC_Type_Moover : PC_Base
     bool jumping;
 
     public float JumpHeght;
-    public float JumpVelocity;
-    public float JumpFloatyness;
-    public float timermul;
-    public Rigidbody2D rb;
 
+
+    public Rigidbody2D rb;
+    public bool controlled;
 
     float basegravity;
     void Start()
     {
+        controlled = false;
         Physics2D.IgnoreLayerCollision(3, 3);
 
-    velo=new Vector3();
+        velo = new Vector3();
 
 
         T = GetComponent<Transform>();
@@ -45,18 +42,18 @@ public class PC_Type_Moover : PC_Base
 
     }
 
-    int skipper=0;
+    int skipper = 0;
 
     // Update is called once per frame
     void Update()
     {
-       rb.gravityScale = basegravity * TL_TimeLineMng.mult;
-    skipper++;
-        if(skipper%(TL_TimeLineMng.mult)==0)
+        rb.gravityScale = basegravity * TL_TimeLineMng.mult;
+        skipper++;
+        if (skipper % (TL_TimeLineMng.mult) == 0 && TL_TimeLineMng.ctime > 0.001f)
         {
-        move();
-        T.position+=velo;
-        velo*=drag;
+            move();
+            T.position += velo;
+            velo *= drag;
         }
 
 
@@ -68,24 +65,23 @@ public class PC_Type_Moover : PC_Base
 
         }
 
-    Use();
+        Use();
     }
 
- 
+
 
     void move()
     {
 
         if (Right)
         {
-            horizontal_vel += TL_TimeLineMng.delta;
-            velo.x+= TL_TimeLineMng.delta;
+
+            velo.x += TL_TimeLineMng.delta*speed;
         }
         if (Left)
         {
-            horizontal_vel -= TL_TimeLineMng.delta;
-            velo.x-= TL_TimeLineMng.delta;
-        
+
+            velo.x -= TL_TimeLineMng.delta*speed;
         }
 
         if (X && !jumping)
@@ -93,10 +89,9 @@ public class PC_Type_Moover : PC_Base
             jumping = true;
             //   vel
             //  jumpTimer=JumpVelocity;
-         //   rb.AddForce(new Vector2(0, JumpHeght));
+            //   rb.AddForce(new Vector2(0, JumpHeght));
             //vertical_vel = JumpHeght;
-            velo.y= JumpHeght;
-
+            velo.y = JumpHeght;
 
         }
         if (!X && Math.Abs(rb.velocity.y) < 0.0001f)
@@ -104,12 +99,22 @@ public class PC_Type_Moover : PC_Base
             jumping = false;
         }
 
+        if(rb.velocity.y<0&&!X)
+        {
+            rb.gravityScale=basegravity*1.5f;
+        }
+        else
+        {
+            rb.gravityScale=basegravity;
+
+        }
+
+
 
         if (Input.GetKey(KeyCode.R))
         {
             TL_TimeLineMng.ResetTimer();
-            horizontal_vel = 0;
-            vertical_vel = 0;
+
             ResetInput();
         }
 
@@ -125,50 +130,56 @@ public class PC_Type_Moover : PC_Base
 
     }
 
-  public  GameObject UseTarget;
-   public bool Usable=false;
+    public GameObject UseTarget;
+    public bool Usable = false;
 
     bool previnput;
     void Use()
     {
 
-        if(Usable&&X!=previnput)
+        if (Usable && Down != previnput)
         {
-            previnput=X;
-            Debug.Log("SENT");
-            UseTarget.GetComponent<GP_Usable>().Dispatch(X);
+            previnput = Down;
+            //       Debug.Log("SENT");
+            UseTarget.GetComponent<GP_Usable>().Dispatch(Down, this);
         }
 
 
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("COLLIDE");
-     if(other.gameObject.tag=="Usable")
-     {
-        Debug.Log("USABLE");
-
-         UseTarget=other.gameObject;
-        Usable=true;
-     }   
-        
-
-    }
-    
-    private void  OnTriggerExit2D(Collider2D other)
-    {
-        if(other.gameObject==UseTarget)
+        //        Debug.Log("COLLIDE");
+        if (other.gameObject.tag == "Usable")
         {
-            Usable=false;
-            UseTarget=null;
-        }        
+            //    Debug.Log("USABLE");
+
+            UseTarget = other.gameObject;
+            Usable = true;
+        }
+        if (other.gameObject.tag == "Death")
+        {
+            FindObjectOfType<MG_StateManager>().RestartScene();
+        }
 
 
-        
     }
 
-    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject == UseTarget)
+        {
+            UseTarget.GetComponent<GP_Usable>().Dispatch(false, this);
+
+            Usable = false;
+            UseTarget = null;
+        }
+
+
+
+    }
+
+
 
 }

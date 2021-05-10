@@ -60,7 +60,7 @@
         "Assets\\Plugins\\GitHub/*.*": true,
         "Assets/Plugins": true,
         "**/Plugins": true,
-        "Assets/*.*": true,
+        "Assets/*.*": false,
         "Plugins": true,
         "**/Logs": true,
         "Logs": true,
@@ -73,7 +73,8 @@
         "**/Packages": true,
         "Packages": true,
         "**/.gitattributes": true,
-        ".gitattributes": true
+      ".gitattributes": true,
+      "**/*.anim": true,
     },
     "explorerExclude.backup": null
 }

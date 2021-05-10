@@ -13,7 +13,7 @@ public class PC_Control : MonoBehaviour
 /// </summary>
     public enum Input_st
     {
-        W,Wr,A,Ar,S,Sr,D,Dr,X,Xr,Tri,Trir,Square,Squarer,Circle,Circler,Latest,NULL
+        W,Wr,A,Ar,S,Sr,D,Dr,X,Xr,Tri,Trir,Square,Squarer,Circle,Circler,Latest,NULL,Over
 
     }
 /// <summary>
@@ -33,12 +33,12 @@ public class PC_Control : MonoBehaviour
 /// <summary>
 /// 現フレームの入力のリスト
 /// </summary>
-    List<Input_st> Ilist;
+   public List<Input_st> Ilist;
 
     void Start()
     {
         Iactive=new bool[12];
-        TargetTL=FindObjectOfType<PC_Inst_Timeline>();
+     //   TargetTL=FindObjectOfType<PC_Inst_Timeline>();
         Ilist=new List<Input_st>();
     }
 
@@ -179,9 +179,25 @@ public class PC_Control : MonoBehaviour
     }
 
     }
+
+
+
    static public void UpdateTarget(GameObject NEW)
     {
+     if(TargetTL!=null)
+              TargetTL.GetComponent<PC_Type_Moover>().controlled=false;
+              
         TargetTL=NEW.GetComponentInParent<PC_Inst_Timeline>();
+        TargetTL.GetComponent<PC_Type_Moover>().controlled=true;
+    }
+
+   static public void UpdateTarget(PC_Base NEW)
+    {
+        if(TargetTL!=null)
+              TargetTL.GetComponent<PC_Type_Moover>().controlled=false;
+       
+        TargetTL=NEW.GetComponentInParent<PC_Inst_Timeline>();
+       TargetTL.GetComponent<PC_Type_Moover>().controlled=true;
     }
 
 }

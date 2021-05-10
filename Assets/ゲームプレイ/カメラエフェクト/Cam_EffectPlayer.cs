@@ -24,11 +24,12 @@ public class Cam_EffectPlayer : MonoBehaviour
       
     }
 
-
+  Vector3 defpos;
     public void DispatchEffect(Cam_EffectSet E)
     {
 
         EffectOffset=E.transform;
+        defpos=EffectOffset.transform.position;
         playing=true;
 
 
@@ -47,7 +48,7 @@ public bool playing=false;
     private void Update() {
     if(playing)
     {
-      camref.EffectOffset=EffectOffset.position;
+      camref.EffectOffset=EffectOffset.position-defpos;
     }
     }
 
