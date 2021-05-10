@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb001219ef06beb429a78d95d0e6d079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completed: 0
   Cir: 0
   Squ: 0
   Tri: 0
@@ -83,15 +84,14 @@ MonoBehaviour:
   Up: 0
   Down: 0
   Right: 0
-  vertical_vel: 0
-  horizontal_vel: 0
-  speed: 4
+  velo: {x: 0, y: 0, z: 0}
+  speed: 2
   drag: 0.8
   JumpHeght: 0.75
-  JumpVelocity: 1.29
-  JumpFloatyness: 0.87
-  timermul: 2
   rb: {fileID: 0}
+  controlled: 0
+  UseTarget: {fileID: 0}
+  Usable: 0
 --- !u!114 &5648866764068740589
 MonoBehaviour:
   m_ObjectHideFlags: 0

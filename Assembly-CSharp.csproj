@@ -57,16 +57,13 @@
      <Compile Include="Assets\ゲームプレイ\PC\入力管理\PC_Inst_Control.cs" />
      <Compile Include="Assets\ゲームプレイ\不必要\Instances\UT_Inst_Colpoints.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\UI_TL_IN_EVENT.cs" />
-     <Compile Include="Assets\ゲームプレイ\ギミック\GP_SceneIcon.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_FC_TimelineFC.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\キャラクター種類\ムーバー\UT_FpsLimit.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\UI_TimeMeter.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_Inst_TL.cs" />
-     <Compile Include="Assets\ゲームプレイ\ギミック\IS_MovingPlatform.cs" />
      <Compile Include="Assets\ゲームプレイ\ギミック\GP_MovingPlatform.cs" />
      <Compile Include="Assets\ゲームプレイ\ギミック\GP_Usable.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\PC_Base.cs" />
-     <Compile Include="Assets\ゲームプレイ\ギミック\GP_I_SceneIcon.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG_StateMng.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG\UI_TimelineMng.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\PC_Control.cs" />
