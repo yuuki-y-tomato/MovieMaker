@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class PC_Base : MonoBehaviour
 {
+    public bool completed;
 
     public bool Cir, Squ, Tri, X;
     public bool Left, Up, Down, Right;
@@ -83,6 +84,7 @@ public class PC_Base : MonoBehaviour
 
    public void ResetInput()
     {
+        completed=false;
         Cir = false;
         Squ = false;
         Tri = false;
@@ -91,5 +93,17 @@ public class PC_Base : MonoBehaviour
         Down = false;
         Right = false;
         Left = false;
+        FindObjectOfType<PC_Control>().Ilist.Clear();
+       GetComponent<PC_Inst_Control>().NextInput.type=PC_Control.Input_st.NULL;
+
+
     }
+   public void HardReset()
+   {
+       ResetInput();
+
+       GetComponent<PC_Inst_Control>().NextInput.type=PC_Control.Input_st.NULL;
+        GetComponent<PC_Inst_Timeline>().EventList.Clear();
+   }
+
 }

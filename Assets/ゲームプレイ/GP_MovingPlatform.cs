@@ -6,20 +6,25 @@ public class GP_MovingPlatform : GP_GimmickBase
 {
     // Start is called before the first frame update
 
+    public GameObject PlatformCenter;
+    private Vector2 Center;
 
     Rigidbody2D rb;
     void Start()
     {
         T=GetComponent<Transform>();
         Debug.Log(pos1.transform.position+"P1");
-        Startpos=T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition);
-        Endpos=T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition);
+        Startpos=T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition-PlatformCenter.transform.localPosition);
+
+        Endpos=T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition-PlatformCenter.transform.localPosition);
         
 
 
 Camera camera=FindObjectOfType<Camera>();
 
- 
+ //       Startpos-=PlatformCenter.transform.position;
+   //     Endpos-=PlatformCenter.transform.position;
+
         pos1.active=false;
         pos2.active=false;
         rb=GetComponent<Rigidbody2D>();
@@ -54,7 +59,7 @@ Camera camera=FindObjectOfType<Camera>();
   public  float lerp=0;
 
     Transform T;
-   public override void Event(bool state)
+   public override void Event(bool state,PC_Base User)
     {
         if(state&&lerp<1.0f)
         {
@@ -70,5 +75,14 @@ Camera camera=FindObjectOfType<Camera>();
     }
 
    
+   void OnCollisionEnter2D(Collision2D other)
+   {
+       other.gameObject.transform.SetParent(this.transform,true);
+   }
+
+   void OnCollisionExit2D(Collision2D other)
+   {
+       other.gameObject.transform.parent=null;
+   }
 
 }

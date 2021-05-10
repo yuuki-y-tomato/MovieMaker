@@ -72,6 +72,11 @@
      <Compile Include="Assets\ゲームプレイ\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\TL_TimeLineMng.cs" />
      <Compile Include="Assets\CAM_Gameplay.cs" />
+     <Compile Include="Assets\MG_StateManager.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\GP_Goal.cs" />
+     <Compile Include="Assets\GP_DeathBox.cs" />
+     <None Include="Assets\NewUnlitShader.shader" />
      <None Include="Assets\ファイルタイトルについて.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:/UNITY/2020.2.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

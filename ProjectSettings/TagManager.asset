@@ -9,6 +9,7 @@ TagManager:
   - TileMap
   - LevelBoundary
   - Usable
+  - Death
   layers:
   - Default
   - TransparentFX
