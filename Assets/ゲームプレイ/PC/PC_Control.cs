@@ -166,7 +166,7 @@ public class PC_Control : MonoBehaviour
     
     for (var i = 0; i < Ilist.Count; i++)
     {  
-       TargetTL.CreateEvent(Ilist[i],localTime+(0.001f*i));
+       TargetTL.CreateEvent(Ilist[i],localTime+(0.00001f*i));
     }
     
     Ilist.Clear();

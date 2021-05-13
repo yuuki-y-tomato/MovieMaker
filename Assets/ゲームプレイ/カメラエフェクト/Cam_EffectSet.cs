@@ -35,39 +35,63 @@ public class Cam_EffectSet : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<Animator>().enabled = false;
         T = GetComponent<Transform>();
-        an = GetComponent<Animator>();
         Targetpos = T.position;
         Debug.Log("Start");
         GetComponentInChildren<MeshRenderer>().enabled = false;
+        T.position=new Vector3(-100,-1000,0);
+            GetComponent<BoxCollider2D>().enabled=false;
+            
+
     }
 
+    private Vector3 asv3(Vector2 v)
+    {
+        return new Vector3(v.x, v.y, 0);
+    }
 
     private void Update()
     {
-            transform.position = new Vector3(0,0,0);
 
         if (timer > TL_TimeLineMng.ctime)
         {
             activated = false;
             GetComponentInChildren<MeshRenderer>().enabled = false;
+        GetComponent<Animator>().enabled = false;
 
             moveend = false;
+            GetComponent<BoxCollider2D>().enabled=false;
+        T.position=new Vector3(-100,-1000,0);
+
         }
         timer = TL_TimeLineMng.ctime;
 
 
-
+        if (Vector3.Distance(asv3(Targetpos), transform.position) < 0.01f)
+        {
+            moveend = true;
+            GetComponent<BoxCollider2D>().enabled=true;
+        }
+        else
         if (activated)
         {
 
-            T.position+=Vector3.MoveTowards(StartPos,Targetpos,speed);
+            T.position += (asv3(Targetpos) - T.position) * speed;
 
         }
+
+if(Input.GetKeyDown(KeyCode.H))
+{
+    StartAtnimation();
+}
     }
 
     void StartAtnimation()
     {
+
+        an = GetComponent<Animator>();
+        GetComponent<Animator>().enabled = true;
 
         an.speed = TL_TimeLineMng.mult;
 
@@ -82,6 +106,7 @@ public class Cam_EffectSet : MonoBehaviour
         }
 
         FindObjectOfType<Cam_EffectPlayer>().DispatchEffect(this);
+        an = null;
 
     }
 
@@ -94,7 +119,6 @@ public class Cam_EffectSet : MonoBehaviour
                 GetComponentInChildren<MeshRenderer>().enabled = false;
                 if (FindObjectOfType<CAM_Replay>().isactive)
                 {
-
                     Debug.Log("StartAnimation");
                     StartAtnimation();
                 }
@@ -108,32 +132,33 @@ public class Cam_EffectSet : MonoBehaviour
         if (!activated)
         {
             StartPos = startpos;
-            transform.position = new Vector3(0,0,0);
+            transform.position = startpos;
 
             activated = true;
-        GetComponentInChildren<MeshRenderer>().enabled = true;
+            GetComponentInChildren<MeshRenderer>().enabled = true;
 
-           // Debug.Log("MoveStart");
-           // StartCoroutine("Move");
+            Debug.Log("MoveStart");
+            // StartCoroutine("Move");
         }
     }
     public bool activated;
     Vector2 StartPos;
     public float speed = 1.0f;
     public bool moveend = false;
-    IEnumerator Move()
-    {
-        GetComponentInChildren<MeshRenderer>().enabled = true;
-
-        float lerp = 0;
-        while (lerp < 1)
+    /*
+        IEnumerator Move()
         {
-            Debug.Log("MOVE:" + lerp.ToString("F4"));
-            T.position = Vector2.Lerp(StartPos, Targetpos, lerp);
-            lerp += Math.Max(speed * TL_TimeLineMng.delta, 1.0f);
-            yield return new WaitForSeconds(1.0f / 60.0f);
-        }
-        moveend = true;
-    }
+            GetComponentInChildren<MeshRenderer>().enabled = true;
 
+            float lerp = 0;
+            while (lerp < 1)
+            {
+                Debug.Log("MOVE:" + lerp.ToString("F4"));
+                T.position = Vector2.Lerp(StartPos, Targetpos, lerp);
+                lerp += Math.Max(speed * TL_TimeLineMng.delta, 1.0f);
+                yield return new WaitForSeconds(1.0f / 60.0f);
+            }
+            moveend = true;
+        }
+    */
 }

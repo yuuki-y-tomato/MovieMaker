@@ -14,7 +14,7 @@ public class CAM_Gameplay : MonoBehaviour
     public bool isactive;
  public  Camera Cam;
 
-
+    private PC_Type_Moover pc;
 
     void Awake()
     {
@@ -27,24 +27,27 @@ public class CAM_Gameplay : MonoBehaviour
         T=GetComponent<Transform>();
     //    Debug.Log("KUGUGUYOG");
         isactive=true;
+        defsize=Cam.orthographicSize;
     }
 
-
+private float defsize;
     // Update is called once per frame
     void Update()
     {
-        if(Targetpos==null)
+        if(Targetpos==null||pc==null)
         {
    //         Debug.Log("TargetUpdate");
     if(PC_Control.TargetTL!=null)
         {
         Targetpos=PC_Control.TargetTL.GetComponent<Transform>();
+        pc=PC_Control.TargetTL.GetComponent<PC_Type_Moover>();
         }
         }else
         if(isactive)
         {
 //            Debug.Log("FUNCTION");
         Move();
+        zoom();
         T.position=new Vector3(T.position.x,T.position.y,-10f);
         }
     }
@@ -84,6 +87,31 @@ public class CAM_Gameplay : MonoBehaviour
     public void UpdateTarget(PC_Base NEW)
     {
         Targetpos=NEW.GetComponent<Transform>();
+    }
+public float max;
+public float retmul=2;
+public float zoomrate=0.15f;
+    void zoom()
+    {
+        if(pc!=null)
+        {
+        if(pc.Usable&&pc.Down)
+        {
+            if(Cam.orthographicSize<max)
+            {
+         //   Cam.orthographicSize+=zoomrate*Time.deltaTime;
+
+          Cam.orthographicSize+=(max-Cam.orthographicSize)*zoomrate*Time.deltaTime;
+            }
+        }else
+        if(Cam.orthographicSize>defsize)
+        {
+          Cam.orthographicSize+=retmul*(defsize-Cam.orthographicSize)*zoomrate*Time.deltaTime;
+
+
+        }
+        Debug.Log("working");
+        }
     }
 
 

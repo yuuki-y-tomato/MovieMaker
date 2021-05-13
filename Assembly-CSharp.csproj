@@ -65,6 +65,7 @@
      <Compile Include="Assets\ゲームプレイ\ギミック\GP_Usable.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\PC_Base.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG_StateMng.cs" />
+     <Compile Include="Assets\PC_Animation.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG\UI_TimelineMng.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\PC_Control.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\入力管理\PC_Inst_Chooser.cs" />
@@ -72,6 +73,8 @@
      <Compile Include="Assets\ゲームプレイ\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\TL_TimeLineMng.cs" />
      <Compile Include="Assets\ゲームプレイ\ギミック\GP_DeathBox.cs" />
+     <Compile Include="Assets\scri.cs" />
+     <Compile Include="Assets\colcir.cs" />
      <None Include="Assets\NewUnlitShader.shader" />
      <None Include="Assets\ファイルタイトルについて.txt" />
     <Reference Include="UnityEngine">

@@ -26,6 +26,8 @@ public class PC_Type_Moover : PC_Base
     public Rigidbody2D rb;
     public bool controlled;
 
+    public scri cirref;
+
     float basegravity;
     void Start()
     {
@@ -42,6 +44,10 @@ public class PC_Type_Moover : PC_Base
 
     }
 
+    public float hordrag;
+    public float vertdrag;
+
+
     int skipper = 0;
 
     // Update is called once per frame
@@ -53,7 +59,12 @@ public class PC_Type_Moover : PC_Base
         {
             move();
             T.position += velo;
-            velo *= drag;
+
+        velo.x*=hordrag;
+        velo.y*=vertdrag;
+//            velo *= drag;
+
+
         }
 
 
@@ -72,19 +83,25 @@ public class PC_Type_Moover : PC_Base
 
     void move()
     {
-
+        if(!cirref.r)
+        {
         if (Right)
         {
 
             velo.x += TL_TimeLineMng.delta*speed;
         }
+        }
+          if(!cirref.l)
+        {
         if (Left)
         {
 
             velo.x -= TL_TimeLineMng.delta*speed;
         }
+        }
 
-        if (X && !jumping)
+//        if (X && !jumping)
+  if(X&&cirref.b&&!jumping)
         {
             jumping = true;
             //   vel
@@ -94,7 +111,7 @@ public class PC_Type_Moover : PC_Base
             velo.y = JumpHeght;
 
         }
-        if (!X && Math.Abs(rb.velocity.y) < 0.0001f)
+        if (cirref.b&&jumping&&!X)
         {
             jumping = false;
         }

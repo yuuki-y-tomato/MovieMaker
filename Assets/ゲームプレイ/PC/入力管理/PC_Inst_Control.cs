@@ -79,7 +79,7 @@ public class PC_Inst_Control : MonoBehaviour
 
 
         //*IF EVENT START IS REACHED
-        if (NextInput.start < LocalTimer)
+        if (NextInput.start <= LocalTimer)
         {
             UpdateInputStates();
         }

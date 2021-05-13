@@ -25,8 +25,9 @@ Camera camera=FindObjectOfType<Camera>();
  //       Startpos-=PlatformCenter.transform.position;
    //     Endpos-=PlatformCenter.transform.position;
 
-        pos1.active=false;
-        pos2.active=false;
+        pos1.SetActive(false);
+        pos2.SetActive(false);
+
         rb=GetComponent<Rigidbody2D>();
         T.position=Startpos;
     

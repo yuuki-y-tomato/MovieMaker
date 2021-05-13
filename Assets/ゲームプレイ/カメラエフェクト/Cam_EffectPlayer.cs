@@ -48,7 +48,7 @@ public bool playing=false;
     private void Update() {
     if(playing)
     {
-      camref.EffectOffset=EffectOffset.position-defpos;
+      camref.EffectOffset=EffectOffset.position;
     }
     }
 

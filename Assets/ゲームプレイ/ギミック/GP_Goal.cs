@@ -36,23 +36,4 @@ public class GP_Goal : GP_GimmickBase
     }
 
 
-    /*
-       public float fadespeed;
-
-        IEnumerator End()
-        {
-    running=true;
-            while(TL_TimeLineMng.mult>0)
-            {
-                TL_TimeLineMng.mult-=fadespeed*Time.deltaTime;
-                Debug.Log(TL_TimeLineMng.mult);
-                yield return true;
-            }
-            TL_TimeLineMng.mult=1;
-            TL_TimeLineMng.ResetTimer();
-
-            FindObjectOfType<MG_StateManager>().AdvanceScene();
-        running=false;
-        }
-    */
 }
