@@ -83,21 +83,26 @@ public class PC_Type_Moover : PC_Base
 
     void move()
     {
-        if(!cirref.r)
-        {
+    
         if (Right)
         {
 
             velo.x += TL_TimeLineMng.delta*speed;
         }
-        }
-          if(!cirref.l)
+            if(cirref.r&&velo.x>0)
         {
+            velo.x =0;
+
+        }
+      
         if (Left)
         {
 
             velo.x -= TL_TimeLineMng.delta*speed;
         }
+            if(cirref.l&&velo.x<0)
+        {
+            velo.x=0;
         }
 
 //        if (X && !jumping)
@@ -175,6 +180,7 @@ public class PC_Type_Moover : PC_Base
 
 
     }
+    
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -189,7 +195,7 @@ public class PC_Type_Moover : PC_Base
 
 
     }
-
+    
 
 
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Extras.Pla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{800599a3-5946-1838-f9f3-01c2867ed76f}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{abb006fd-58c2-8100-69ae-9d34be9eacbc}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,8 @@ Global
 		{652853c2-bbd7-3ffb-08ac-621bdbb3678b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{800599a3-5946-1838-f9f3-01c2867ed76f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{800599a3-5946-1838-f9f3-01c2867ed76f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{abb006fd-58c2-8100-69ae-9d34be9eacbc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{abb006fd-58c2-8100-69ae-9d34be9eacbc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

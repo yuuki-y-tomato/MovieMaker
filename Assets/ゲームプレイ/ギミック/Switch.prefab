@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6960805068291039248}
   - component: {fileID: 4969434995014575131}
   - component: {fileID: 1236250331891804206}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +127,7 @@ MonoBehaviour:
   Showline: 1
   isactive: 0
   Targets: []
+  speed: 0
 --- !u!1 &8180587151986439074
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6144521624323571889}
   - component: {fileID: 5630304018988600686}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

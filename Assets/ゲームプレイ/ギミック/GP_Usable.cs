@@ -8,6 +8,7 @@ public class GP_Usable : MonoBehaviour
     void Start()
     {
 
+        
         this.tag = "Usable";
     lines=new List<LineRenderer>();
         if (Showline)
