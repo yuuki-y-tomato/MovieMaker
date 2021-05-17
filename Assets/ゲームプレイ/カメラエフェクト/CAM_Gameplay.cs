@@ -110,7 +110,7 @@ public float zoomrate=0.15f;
 
 
         }
-        Debug.Log("working");
+//        Debug.Log("working");
         }
     }
 

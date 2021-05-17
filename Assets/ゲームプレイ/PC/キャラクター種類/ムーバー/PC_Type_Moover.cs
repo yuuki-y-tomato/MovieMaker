@@ -136,16 +136,7 @@ public class PC_Type_Moover : PC_Base
         }
 
     }
-    float smin(float val, float lim, float smooth)
-    {
 
-        float buf;
-        buf = Math.Max(smooth - Math.Abs(val - lim), 0) / smooth;
-
-        return Math.Min(val, lim) - buf * buf * smooth * 0.25f;
-
-
-    }
 
     public GameObject UseTarget;
     public bool Usable = false;
@@ -174,6 +165,8 @@ public class PC_Type_Moover : PC_Base
 
             UseTarget = other.gameObject;
             Usable = true;
+             
+
         }
         if (other.gameObject.tag == "Death")
         {
@@ -188,7 +181,7 @@ public class PC_Type_Moover : PC_Base
         if (other.gameObject == UseTarget)
         {
             UseTarget.GetComponent<GP_Usable>().Dispatch(false, this);
-
+      
             Usable = false;
             UseTarget = null;
         }
