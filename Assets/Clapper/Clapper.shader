@@ -3,15 +3,18 @@ Shader "Unlit/Clapper"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Color ("Color", Color) = (1,1,1,1)
         _time ("Time", float) = 0.0
-        _Repeat("Repeat",float )=0.0
+        _Slider ("Slider", Range(0,1)) = 1.0
+
     }
     SubShader
     {
         Tags { "QUEUE"="Transparent" "IGNOREPROJECTOR"="true" "RenderType"="Transparent" "CanUseSpriteAtlas"="true" "PreviewType"="Plane" }
         LOD 100
-
+        Cull Off
+        Lighting Off
+        ZTest [unity_GUIZTestMode]
+        Blend SrcAlpha OneMinusSrcAlpha
         Pass
         {
             CGPROGRAM
@@ -39,6 +42,8 @@ Shader "Unlit/Clapper"
             float4 _MainTex_ST;
             float _Repeat;
             float _time;
+            float _Slider;
+
             
             ;
             v2f vert (appdata v)
@@ -53,12 +58,13 @@ Shader "Unlit/Clapper"
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                float2 os=i.uv*_Repeat;
+                float2 os=i.uv;
                 os.x=fmod(_time+os.x,1.0f);
                 fixed4 col = tex2D(_MainTex, os);
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
+               
+                return col*(i.uv.x<_Slider);
             }
             ENDCG
         }
