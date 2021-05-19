@@ -47,24 +47,36 @@ public class Clapper_Editor : Editor
     {
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Top"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Bottom"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("Texts"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("Mat"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("ReadyParent"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("GPParent"));
 
 
     }
 
     void DisplayReady()
     {
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("TakeCount"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("SceneCount"));
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("rotrate"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("rotmax"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("smooth"));
+        
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("ReadySize"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("ReadyPos"));
 
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("number"));
 
         
     }
 void DisplayGP()
 {
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("SliderMat"));
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("SliderRate"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("TimerText"));
 
 
 }

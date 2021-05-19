@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\ゲームプレイ\カメラエフェクト\CAM_Gameplay.cs" />
+     <Compile Include="Assets\LevelSelect\LevelInfo.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_TL_inst_Icon.cs" />
      <Compile Include="Assets\ゲームプレイ\ギミック\GP_Goal.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\UI_Inst_EventIcon.cs" />
@@ -54,6 +55,7 @@
      <Compile Include="Assets\ゲームプレイ\PC\入力管理\PC_Inst_Timeline.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\UT_InputFilter.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\UI_TL_EventList.cs" />
+     <Compile Include="Assets\LevelSelect\Wheel.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\UI_Selection_Icon.cs" />
      <Compile Include="Assets\ゲームプレイ\カメラエフェクト\Cam_EffectSet.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\入力管理\PC_Inst_Control.cs" />
@@ -72,13 +74,17 @@
      <Compile Include="Assets\ゲームプレイ\Managers\MG\UI_TimelineMng.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\PC_Control.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\入力管理\PC_Inst_Chooser.cs" />
+     <Compile Include="Assets\LevelSelect\Levelselect.cs" />
      <Compile Include="Assets\ゲームプレイ\カメラエフェクト\Cam_EffectPlayer.cs" />
      <Compile Include="Assets\colcir.cs" />
      <Compile Include="Assets\ゲームプレイ\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\TL_TimeLineMng.cs" />
      <Compile Include="Assets\ゲームプレイ\ギミック\GP_DeathBox.cs" />
+     <Compile Include="Assets\Clapper\POPUP\POPUP_Controller.cs" />
+     <Compile Include="Assets\TrailController.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\LevelSelect\Strip.shader" />
      <None Include="Assets\NewUnlitShader 1.shader" />
      <None Include="Assets\NewSurfaceShader.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -88,6 +94,7 @@
      <None Include="Assets\NewUnlitShader.shader" />
      <None Include="Assets\ファイルタイトルについて.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\LevelSelect\Transparent.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\Clapper\Clapper.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />

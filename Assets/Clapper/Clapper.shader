@@ -5,6 +5,8 @@ Shader "Unlit/Clapper"
         _MainTex ("Texture", 2D) = "white" {}
         _time ("Time", float) = 0.0
         _Slider ("Slider", Range(0,1)) = 1.0
+        _Repeat ("Repeat", float) = 1.0
+
 
     }
     SubShader
@@ -43,7 +45,6 @@ Shader "Unlit/Clapper"
             float _Repeat;
             float _time;
             float _Slider;
-
             
             ;
             v2f vert (appdata v)
@@ -59,6 +60,7 @@ Shader "Unlit/Clapper"
             {
                 // sample the texture
                 float2 os=i.uv;
+                os.x/=_Repeat;
                 os.x=fmod(_time+os.x,1.0f);
                 fixed4 col = tex2D(_MainTex, os);
                 // apply fog

@@ -6,7 +6,7 @@ public class scri : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public colcir L,R,B;
+    public colcir L,R,B,B2;
     public bool l,r,b;
 
     // Update is called once per frame
@@ -14,7 +14,7 @@ public class scri : MonoBehaviour
     {
         l=L.state;
         r=R.state;
-        b=B.state;
+        b=(B.state||B2.state);
     }
 
     

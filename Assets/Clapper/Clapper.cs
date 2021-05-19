@@ -9,86 +9,175 @@ public class Clapper : MonoBehaviour
     #region Components
     public GameObject Top;
     public GameObject Bottom;
-    public List<TextMesh> Texts;
+    public Transform ReadyParent;
+    public Transform GPParent;
+
+
     Transform Top_T;
 
     #endregion
     #region Basics
 
+    public Transform T;
+
 
     void Start()
     {
-
+        SliderMat.SetFloat("_Slider",0);
+        T = GetComponent<Transform>();
         Top_T = Top.GetComponent<Transform>();
 
-        Texts[0].text = "Start";
+        //Texts[0].text = "Start";
+        prevstate = MG_StateManager.States.Ready;
+        SetContents(prevstate);
     }
 
-    // Update is called once per frame
+    MG_StateManager.States prevstate;
+
     void Update()
     {
-        GamePlay();
+
+        if (prevstate != MG_StateManager.state)
+        {
+            prevstate = MG_StateManager.state;
+            SetContents(prevstate);
+        }
+
+
+        switch (prevstate)
+        {
+            case MG_StateManager.States.Ready:
+                Ready();
+                break;
+
+            case MG_StateManager.States.Gameplay:
+                GamePlay();
+                break;
+        }
+
+    }
+
+    void CLearContents()
+    {
+        Setv(ReadyParent, 10, 2);
+        Setv(GPParent, 10, 2);
+
+
+    }
+
+
+    public float number;
+    void SetContents(MG_StateManager.States tgt)
+    {
+        CLearContents();
+        switch (tgt)
+        {
+            case MG_StateManager.States.Ready:
+                Setv(ReadyParent, 0, 2);
+                break;
+            case MG_StateManager.States.Gameplay:
+                Setv(GPParent, 0, 2);
+                break;
+        }
+    }
+
+    #endregion
+
+    #region States
+
+    #region  Ready
+
+    #region Variables
+
+    [Header("Components")]
+    public TextMesh TakeCount;
+    public TextMesh SceneCount;
+
+
+    [Header("Var")]
+    public float rotrate;
+    public float rotmax;
+    public float smooth;
+    private float rot;
+
+    [Header("Position")]
+
+    public float ReadySize;
+    public Vector3 ReadyPos;
+
+    private bool set;
+    #endregion
+    void Ready()
+    {
         if (Input.GetKey(KeyCode.P))
         {
             rot = smin(rot + rotrate, rotmax, smooth);
-            Debug.Log(rot);
+            //   Debug.Log(rot);
+
         }
         else
         {
             rot -= rotrate * 4.0f;
             rot = Math.Max(rot, 0);
         }
+        if (rot > rotmax / 4)
+        {
+            set = true;
+        }
+        if (rot < 0.05f && set && MG_StateManager.state == MG_StateManager.States.Ready)
+        {
+            Debug.Log("cir");
+            set = false;
+            FindObjectOfType<CAM_Gameplay>().Ready_to_GP();
+            TL_TimeLineMng.run(true);
+        }
 
+
+        //   T.localScale+=lerp(T.localScale,ReadySize,Speed);
+        //   T.position+=lerp(T.position,ReadyPos,Speed);
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+
+            MG_StateManager.state = MG_StateManager.States.Gameplay;
+        }
         Top_T.rotation = Quaternion.Euler(0, 0, -rot);
 
     }
-
-    #endregion
-
-    #region States
-   
-    #region  Ready
-    #region Variables
-    private float rot;
-    public float rotrate;
-    public float rotmax;
-    public float smooth;
-    #endregion
-    void Ready()
+    void readyinit()
     {
+        set = false;
 
     }
     #endregion
-    
+
     #region gameplay
-    ///*
-    ///*    REQ
-    ///*    SLIDER,TIMER
-    ///*
-    ///*
-    /// 
+
+
+
+
     #region Var
-    public Material Mat;
-    public float SliderRate=1.0f;
+    [Header("Components")]
+    public TextMesh TimerText;
+    public Material SliderMat;
+    private Material Slidermatinst;
+    public float SliderRate = 1.0f;
     #endregion
     void GamePlay()
     {
-        GP_Timer();
+        GP_UpdateSlider();
 
-        Texts[0].text="制限時間:";
-        Texts[1].text=(TL_TimeLineMng.Max_acc-TL_TimeLineMng.ctime).ToString();
+        TimerText.text = ((int)(TL_TimeLineMng.Max_acc - TL_TimeLineMng.ctime)).ToString();
 
-        
     }
 
-    void GP_Timer()
+    void GP_UpdateSlider()
     {
-         Mat.SetFloat("_time",TL_TimeLineMng.ctime*SliderRate);
-        Mat.SetFloat("_Slider",TL_TimeLineMng.ctime/TL_TimeLineMng.Max_acc);
+        SliderMat.SetFloat("_time", TL_TimeLineMng.ctime * SliderRate);
+        SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.Max_acc);
     }
 
     #endregion
-    
+
     #endregion
     #region Utils
     public void UpdateGamestate(int id)
@@ -113,6 +202,38 @@ public class Clapper : MonoBehaviour
 
 
     }
+
+    public static float lerp(float v, float tgt, float rate)
+    {
+        return Math.Min(tgt - v, 1.0f) * rate;
+    }
+    public static Vector3 lerp(Vector3 v, Vector3 tgt, float rate)
+    {
+        return (tgt - v).normalized * rate;
+    }
     #endregion
+
+
+
+
+  public static  void Setv(Transform v, float value, int index)
+    {
+        Vector3 buf = v.localPosition;
+        switch (index)
+        {
+            case 0:
+                v.localPosition = new Vector3(value, buf.y, buf.z);
+                break;
+            case 1:
+                v.localPosition = new Vector3(buf.x, value, buf.z);
+                break;
+            case 2:
+                v.localPosition = new Vector3(buf.x, buf.y, value);
+                break;
+        }
+        Debug.Log(v.position.ToString());
+
+
+    }
 
 }
