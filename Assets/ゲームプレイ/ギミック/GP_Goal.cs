@@ -30,7 +30,7 @@ public class GP_Goal : GP_GimmickBase
             }
             else
             {
-                CamItem.Create(this.transform.position);
+                CamItem.Create(this.transform.position,User);
             }
         }
     }
