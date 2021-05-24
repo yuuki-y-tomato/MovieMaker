@@ -60,9 +60,9 @@ public class PC_Type_Moover : PC_Base
             move();
             T.position += velo;
 
-        velo.x*=hordrag;
-        velo.y*=vertdrag;
-//            velo *= drag;
+            velo.x *= hordrag;
+            velo.y *= vertdrag;
+            //            velo *= drag;
 
 
         }
@@ -76,37 +76,37 @@ public class PC_Type_Moover : PC_Base
 
         }
 
-        Use();
+        //        Use();
     }
 
 
 
     void move()
     {
-    
+
         if (Right)
         {
 
-            velo.x += TL_TimeLineMng.delta*speed;
+            velo.x += TL_TimeLineMng.delta * speed;
         }
-            if(cirref.r&&velo.x>0)
+        if (cirref.r && velo.x > 0)
         {
-            velo.x =0;
+            velo.x = 0;
 
         }
-      
+
         if (Left)
         {
 
-            velo.x -= TL_TimeLineMng.delta*speed;
+            velo.x -= TL_TimeLineMng.delta * speed;
         }
-            if(cirref.l&&velo.x<0)
+        if (cirref.l && velo.x < 0)
         {
-            velo.x=0;
+            velo.x = 0;
         }
 
-//        if (X && !jumping)
-  if(X&&cirref.b&&!jumping)
+        //        if (X && !jumping)
+        if (X && cirref.b && !jumping)
         {
             jumping = true;
             //   vel
@@ -116,18 +116,18 @@ public class PC_Type_Moover : PC_Base
             velo.y = JumpHeght;
 
         }
-        if (cirref.b&&jumping&&!X)
+        if (cirref.b && jumping && !X)
         {
             jumping = false;
         }
 
-        if(rb.velocity.y<0&&!X)
+        if (rb.velocity.y < 0 && !X)
         {
-            rb.gravityScale=basegravity*1.5f;
+            rb.gravityScale = basegravity * 1.5f;
         }
         else
         {
-            rb.gravityScale=basegravity;
+            rb.gravityScale = basegravity;
 
         }
 
@@ -153,49 +153,57 @@ public class PC_Type_Moover : PC_Base
         if (Usable && Down != previnput)
         {
             previnput = Down;
-            //       Debug.Log("SENT");
             UseTarget.GetComponent<GP_Usable>().Dispatch(Down, this);
         }
 
 
     }
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //     Debug.Log("SENT");
+
         //        Debug.Log("COLLIDE");
+        /*
         if (other.gameObject.tag == "Usable")
         {
             //    Debug.Log("USABLE");
 
             UseTarget = other.gameObject;
             Usable = true;
-             
 
-        }
+
+        }*/
         if (other.gameObject.tag == "Death")
         {
-            FindObjectOfType<MG_StateManager>().RestartScene();
+            MG_StateManager Ref = FindObjectOfType<MG_StateManager>();
+            Ref.RestartScene();
         }
 
 
     }
-    
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Usable")
+        {
+            //    Debug.Log("USABLE");
+
+            UseTarget = other.gameObject;
+            Usable = true;
+
+            Use();
+
+        }
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject == UseTarget)
-        {
-            UseTarget.GetComponent<GP_Usable>().Dispatch(false, this);
-      
-            Usable = false;
-            UseTarget = null;
-        }
+//        Debug.Log("Exit");
 
-
-
+        UseTarget.GetComponent<GP_Usable>().Dispatch(false, this);
     }
-    
+
 
 
 }

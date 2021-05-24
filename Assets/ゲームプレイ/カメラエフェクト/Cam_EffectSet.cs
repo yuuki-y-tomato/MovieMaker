@@ -43,7 +43,7 @@ public class Cam_EffectSet : MonoBehaviour
         Debug.Log("Start");
         //      GetComponentInChildren<MeshRenderer>().enabled = false;
         T.position = new Vector3(-100, -1000, 0);
-      //  GetComponent<BoxCollider2D>().enabled = false;
+        //  GetComponent<BoxCollider2D>().enabled = false;
         activated = false;
         Sprite.transform.localPosition = new Vector3(0, 0, 10);
     }
@@ -63,7 +63,7 @@ public class Cam_EffectSet : MonoBehaviour
             GetComponent<Animator>().enabled = false;
 
             moveend = false;
-           // GetComponent<BoxCollider2D>().enabled = false;
+            // GetComponent<BoxCollider2D>().enabled = false;
             T.position = new Vector3(-100, -1000, 0);
 
         }
@@ -73,7 +73,7 @@ public class Cam_EffectSet : MonoBehaviour
         if (Vector3.Distance(asv3(Targetpos), transform.position) < 0.01f)
         {
             moveend = true;
-       //     GetComponent<BoxCollider2D>().enabled = true;
+            //     GetComponent<BoxCollider2D>().enabled = true;
         }
         else
         if (activated)
@@ -92,12 +92,13 @@ public class Cam_EffectSet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Enter");
-        if (other.gameObject.tag == "PCs" && moveend&&maker!=other.gameObject)
+        if (other.gameObject.tag == "PCs" &&  maker != other.gameObject)
         {
-          //  Sprite.transform.localPosition = new Vector3(0, 0, 10);
-                StartCoroutine("MoveUp");
-                moveend=false;
+        Debug.Log("Enter");
+
+            //  Sprite.transform.localPosition = new Vector3(0, 0, 10);
+            StartCoroutine("MoveUp");
+            moveend = false;
             if (MG_StateManager.state == MG_StateManager.States.Replay)
             {
                 StartAtnimation();
@@ -132,11 +133,11 @@ public class Cam_EffectSet : MonoBehaviour
     }
     private GameObject maker;
 
-    public void Create(Vector2 startpos,PC_Base user)
+    public void Create(Vector2 startpos, PC_Base user)
     {
         if (!activated)
         {
-            maker=user.gameObject;
+            maker = user.gameObject;
             Debug.Log(startpos);
             StartPos = startpos;
             transform.position = startpos;
@@ -175,13 +176,13 @@ public class Cam_EffectSet : MonoBehaviour
 
     IEnumerator MoveUp()
     {
-        float k=0;
-        while(k<10)
+        
+        while (Sprite.transform.position.y<600)
         {
-            
-            Sprite.transform.localPosition=Clapper.lerp
-            (Sprite.transform.localPosition,new Vector3(Sprite.transform.localPosition.x,1000,Sprite.transform.localPosition.z),speed);
-            k+=Time.deltaTime;
+
+            Sprite.transform.localPosition += Clapper.lerp
+            (Sprite.transform.localPosition, new Vector3(Sprite.transform.localPosition.x, 1000, Sprite.transform.localPosition.z), speed);
+           Debug.Log("UP");
             yield return null;
         }
     }

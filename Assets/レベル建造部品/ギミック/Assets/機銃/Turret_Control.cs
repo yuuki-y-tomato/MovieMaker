@@ -13,10 +13,15 @@ public class Turret_Control : MonoBehaviour
 
     private float timer;
 
-    
+    public Material Base;
+    private Material MeterMat;    
+    public GameObject Meter;
+    public Animator ac;
+
     void Start()
     {
-
+        MeterMat=Instantiate(Base);
+        Meter.GetComponent<SpriteRenderer>().material=MeterMat;
     }
 
     // Update is called once per frame
@@ -33,14 +38,17 @@ public class Turret_Control : MonoBehaviour
         {
             generate();
             timer = 0;
+            ac.Play("Fire");
         }
+        MeterMat.SetFloat("_Timer",TL_TimeLineMng.ctime);
+        MeterMat.SetFloat("_Meter",timer/DownTIme);
 
 
     }
 
     void generate()
     {
-        Bullet.Create(dir, transform.position,Speed);
+        Bullet.Create(dir, this.transform.position,Speed);
     }
 
 }

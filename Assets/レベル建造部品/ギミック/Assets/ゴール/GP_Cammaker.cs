@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GP_Goal : GP_GimmickBase
+public class GP_Cammaker : GP_GimmickBase
 {
 
     public Cam_EffectSet CamItem;
 
     bool running = false;
+    public bool isGoal;    
+
     public override void Event(bool state, PC_Base User)
     {
+
         if (state)
         {
             User.ResetInput();
@@ -18,7 +21,7 @@ public class GP_Goal : GP_GimmickBase
 
             if (User == PC_Control.TargetTL.GetComponent<PC_Base>())
             {
-                if (!running)
+                if (!running&&isGoal)
                 {
                     TL_TimeLineMng.mult = 1;
                     TL_TimeLineMng.ResetTimer();

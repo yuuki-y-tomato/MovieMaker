@@ -81,7 +81,6 @@ public class PC_Base : MonoBehaviour
 
 
     }
-
    public void ResetInput()
     {
         completed=false;

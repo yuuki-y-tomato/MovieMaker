@@ -13,9 +13,11 @@ public class Bullet : MonoBehaviour
     private static bool initiated = false;
 
     public GR_EffectContainer Effect;
+    public Material mat;
 
     void Start()
     {
+
         if (!initiated)
         {
             isntances = new List<Bullet>();
@@ -46,6 +48,7 @@ public class Bullet : MonoBehaviour
 
     public dir Direction;
     public float speed;
+    
 
     // Update is called once per frame
     void Update()
@@ -53,18 +56,28 @@ public class Bullet : MonoBehaviour
         switch (Direction)
         {
             case dir.Right:
+
                 transform.position += new Vector3(speed, 0, 0) * TL_TimeLineMng.delta;
+                transform.rotation=Quaternion.Euler(0,0,180);
+
                 break;
             case dir.Left:
                 transform.position += new Vector3(-speed, 0, 0) * TL_TimeLineMng.delta;
+                transform.rotation=Quaternion.Euler(0,0,0);
+
                 break;
             case dir.Up:
+                transform.rotation=Quaternion.Euler(0,0,270);
+
                 transform.position += new Vector3(0, speed, 0) * TL_TimeLineMng.delta;
                 break;
             case dir.Down:
+                transform.rotation=Quaternion.Euler(0,0,90);
+
                 transform.position += new Vector3(0, -speed, 0) * TL_TimeLineMng.delta;
                 break;
         }
+        mat.SetFloat("_Timer",TL_TimeLineMng.ctime*5);
     }
 
     void OnTriggerEnter2D(Collider2D other)

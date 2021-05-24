@@ -12,6 +12,7 @@ public class Clapper : MonoBehaviour
     public Transform ReadyParent;
     public Transform GPParent;
 
+    private MG_StateManager stateManagerref;
 
     Transform Top_T;
 
@@ -23,6 +24,7 @@ public class Clapper : MonoBehaviour
 
     void Start()
     {
+        stateManagerref=FindObjectOfType<MG_StateManager>();
         SliderMat.SetFloat("_Slider",0);
         T = GetComponent<Transform>();
         Top_T = Top.GetComponent<Transform>();
@@ -54,6 +56,7 @@ public class Clapper : MonoBehaviour
                 GamePlay();
                 break;
         }
+        SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.Max_acc);
 
     }
 
@@ -87,7 +90,7 @@ public class Clapper : MonoBehaviour
 
     #region  Ready
 
-    #region Variables
+      #region Variables
 
     [Header("Components")]
     public TextMesh TakeCount;
@@ -109,7 +112,11 @@ public class Clapper : MonoBehaviour
     #endregion
     void Ready()
     {
-        if (Input.GetKey(KeyCode.P))
+
+        TakeCount.text="Take "+(stateManagerref.Takes+1).ToString();
+        SceneCount.text="Scene "+stateManagerref.Actors+"/"+(stateManagerref.CurrentActor+1).ToString();
+
+        if (Input.GetKey(KeyCode.P))    
         {
             rot = smin(rot + rotrate, rotmax, smooth);
             //   Debug.Log(rot);
@@ -148,14 +155,14 @@ public class Clapper : MonoBehaviour
         set = false;
 
     }
-    #endregion
+      #endregion
 
     #region gameplay
 
 
 
 
-    #region Var
+     #region Var
     [Header("Components")]
     public TextMesh TimerText;
     public Material SliderMat;
@@ -173,7 +180,7 @@ public class Clapper : MonoBehaviour
     void GP_UpdateSlider()
     {
         SliderMat.SetFloat("_time", TL_TimeLineMng.ctime * SliderRate);
-        SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.Max_acc);
+       // SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.Max_acc);
     }
 
     #endregion
