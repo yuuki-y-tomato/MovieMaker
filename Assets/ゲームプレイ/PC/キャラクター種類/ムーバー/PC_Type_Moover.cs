@@ -54,14 +54,13 @@ public class PC_Type_Moover : PC_Base
     void Update()
     {
         rb.gravityScale = basegravity * TL_TimeLineMng.mult;
-        skipper++;
-        if (skipper % (TL_TimeLineMng.mult) == 0 && TL_TimeLineMng.ctime > 0.001f)
+        //   skipper++;
+        //  if (skipper % (TL_TimeLineMng.mult) == 0 && TL_TimeLineMng.ctime > 0.001f)
         {
             move();
             T.position += velo;
 
             velo.x *= hordrag;
-            velo.y *= vertdrag;
             //            velo *= drag;
 
 
@@ -78,8 +77,9 @@ public class PC_Type_Moover : PC_Base
 
         //        Use();
     }
-
-
+    public float JumpGravity;
+    public float FallGravity;
+    public float JumpThreshhold;
 
     void move()
     {
@@ -113,21 +113,21 @@ public class PC_Type_Moover : PC_Base
             //  jumpTimer=JumpVelocity;
             //   rb.AddForce(new Vector2(0, JumpHeght));
             //vertical_vel = JumpHeght;
-            velo.y = JumpHeght;
-
+            //  velo.y = JumpHeght;
+            rb.AddForce(new Vector2(0, JumpHeght));
         }
         if (cirref.b && jumping && !X)
         {
             jumping = false;
         }
 
-        if (rb.velocity.y < 0 && !X)
+        if (rb.velocity.y < JumpThreshhold && !X)
         {
-            rb.gravityScale = basegravity * 1.5f;
+            rb.gravityScale = FallGravity;
         }
         else
         {
-            rb.gravityScale = basegravity;
+            rb.gravityScale = JumpGravity;
 
         }
 
@@ -180,7 +180,6 @@ public class PC_Type_Moover : PC_Base
             Ref.RestartScene();
         }
 
-
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -199,7 +198,7 @@ public class PC_Type_Moover : PC_Base
 
     private void OnTriggerExit2D(Collider2D other)
     {
-//        Debug.Log("Exit");
+        //        Debug.Log("Exit");
 
         UseTarget.GetComponent<GP_Usable>().Dispatch(false, this);
     }

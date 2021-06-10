@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 4729561246239952718}
   - component: {fileID: 5596239041134872042}
   m_Layer: 3
-  m_Name: Mover
+  m_Name: PC
   m_TagString: PCs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,14 +459,17 @@ MonoBehaviour:
   Down: 0
   Right: 0
   velo: {x: 0, y: 0, z: 0}
-  speed: 4
+  speed: 5
   drag: 0.75
-  JumpHeght: 0.75
+  JumpHeght: 2
   rb: {fileID: 0}
   controlled: 0
   cirref: {fileID: 5461543527153377368}
   hordrag: 0.5
   vertdrag: 0.75
+  JumpGravity: 6
+  FallGravity: 10
+  JumpThreshhold: 1
   UseTarget: {fileID: 0}
   Usable: 0
 --- !u!114 &5648866764068740589

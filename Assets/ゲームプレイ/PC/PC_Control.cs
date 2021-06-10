@@ -40,6 +40,7 @@ public class PC_Control : MonoBehaviour
         Iactive=new bool[12];
      //   TargetTL=FindObjectOfType<PC_Inst_Timeline>();
         Ilist=new List<Input_st>();
+        TargetTL.GetComponent<PC_Inst_Timeline>().EventList.Clear();
     }
 
     void Update()
@@ -166,7 +167,7 @@ public class PC_Control : MonoBehaviour
     
     for (var i = 0; i < Ilist.Count; i++)
     {  
-       TargetTL.CreateEvent(Ilist[i],localTime+(0.00001f*i));
+       TargetTL.CreateEvent(Ilist[i],localTime+(0.0001f*i));
     }
     
     Ilist.Clear();
