@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 /// <summary>
 /// 時間管理モジュール
 /// </summary>
@@ -43,6 +43,8 @@ public class TL_TimeLineMng : MonoBehaviour
 
 
     private static bool running;
+
+    public static Action OnReset;
 
     void Update()
     {
@@ -90,6 +92,7 @@ public class TL_TimeLineMng : MonoBehaviour
     public static void ResetTimer()
     {
         reset = true;
+        OnReset?.Invoke();
     }
     /*
         private void OnGUI()

@@ -54,17 +54,25 @@ public class PC_Inst_Control : MonoBehaviour
         DefPos = GetComponent<Transform>().position;
     }
 
+    void OnEnable()
+    {
+        TL_TimeLineMng.OnReset += ResetEvent;
+    }
+    void OnDisable()
+    {
+        TL_TimeLineMng.OnReset -= ResetEvent;
+    }
 
+    void ResetEvent()
+    {
+        GetComponent<Transform>().position = DefPos;
+        NextInput = Timeline_Ref.GetZero();
+    }
 
     void Update()
     {
 
-        //*リセット
-        if (LocalTimer > TL_TimeLineMng.ctime)
-        {
-            GetComponent<Transform>().position = DefPos;
-            NextInput = Timeline_Ref.GetZero();
-        }
+
 
         LocalTimer = TL_TimeLineMng.ctime;
 
@@ -87,15 +95,15 @@ public class PC_Inst_Control : MonoBehaviour
 
 
     }
-        void UpdateInputStates()
+    void UpdateInputStates()
     {
         ///*対応したキャラクターに入力の情報を送る
 
-        if(NextInput.type!=PC_Control.Input_st.Over)
+        if (NextInput.type != PC_Control.Input_st.Over)
         {
-        ActorRef.DispatchEvent(((int)NextInput.type));
-        //*次のイベントを探す
-        NextInput = Timeline_Ref.FindNext(NextInput);
+            ActorRef.DispatchEvent(((int)NextInput.type));
+            //*次のイベントを探す
+            NextInput = Timeline_Ref.FindNext(NextInput);
         }
     }
 

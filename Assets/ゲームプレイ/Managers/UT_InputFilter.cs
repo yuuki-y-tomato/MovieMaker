@@ -1,21 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 /// <summary>
 /// インプット管理
 /// </summary>
 public class UT_InputFilter : MonoBehaviour
 {
-    public PlayerInput pi;
 
     public static float Axis;
 
     public static float GetHor()
     {    
+      return Input.GetAxis("Horizontal");
         
-      return Axis.x;
     }
     public static float GetVer()
     {    
@@ -100,14 +98,6 @@ else
             }
 
         return false;
-    }
-    public static void AxisInput(InputAction.CallbackContext v)
-    {
-        Vector2 buf=v.ReadValue<Vector2>();
-
-        
-
-
     }
 
 

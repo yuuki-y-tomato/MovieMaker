@@ -161,19 +161,7 @@ public class PC_Type_Moover : PC_Base
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //     Debug.Log("SENT");
 
-        //        Debug.Log("COLLIDE");
-        /*
-        if (other.gameObject.tag == "Usable")
-        {
-            //    Debug.Log("USABLE");
-
-            UseTarget = other.gameObject;
-            Usable = true;
-
-
-        }*/
         if (other.gameObject.tag == "Death")
         {
             MG_StateManager Ref = FindObjectOfType<MG_StateManager>();
