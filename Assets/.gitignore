@@ -1,0 +1,7 @@
+/Library
+/Logs
+/Temp
+*.csproj
+*.meta
+Assembly-CSharp.csproj
+Assets/UT_Inputmanager.cs.meta
