@@ -24,8 +24,8 @@ public class Clapper : MonoBehaviour
 
     void Start()
     {
-        stateManagerref=FindObjectOfType<MG_StateManager>();
-        SliderMat.SetFloat("_Slider",0);
+        stateManagerref = FindObjectOfType<MG_StateManager>();
+        SliderMat.SetFloat("_Slider", 0);
         T = GetComponent<Transform>();
         Top_T = Top.GetComponent<Transform>();
 
@@ -90,7 +90,7 @@ public class Clapper : MonoBehaviour
 
     #region  Ready
 
-      #region Variables
+    #region Variables
 
     [Header("Components")]
     public TextMesh TakeCount;
@@ -113,10 +113,10 @@ public class Clapper : MonoBehaviour
     void Ready()
     {
 
-        TakeCount.text="Take "+(stateManagerref.Takes+1).ToString();
-        SceneCount.text="Scene "+stateManagerref.Actors+"/"+(stateManagerref.CurrentActor+1).ToString();
+        TakeCount.text = "Take " + (stateManagerref.Takes + 1).ToString();
+        SceneCount.text = "Scene " + stateManagerref.Actors + "/" + (stateManagerref.CurrentActor + 1).ToString();
 
-        if (Input.GetKey(KeyCode.P))    
+        if (Input.GetKey(KeyCode.P))
         {
             rot = smin(rot + rotrate, rotmax, smooth);
             //   Debug.Log(rot);
@@ -155,20 +155,21 @@ public class Clapper : MonoBehaviour
         set = false;
 
     }
-      #endregion
+    #endregion
 
     #region gameplay
 
 
 
 
-     #region Var
+    #region Var
     [Header("Components")]
     public TextMesh TimerText;
     public Material SliderMat;
     private Material Slidermatinst;
     public float SliderRate = 1.0f;
     #endregion
+    
     void GamePlay()
     {
         GP_UpdateSlider();
@@ -180,12 +181,14 @@ public class Clapper : MonoBehaviour
     void GP_UpdateSlider()
     {
         SliderMat.SetFloat("_time", TL_TimeLineMng.ctime * SliderRate);
-       // SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.Max_acc);
+        // SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.Max_acc);
     }
 
     #endregion
 
     #endregion
+
+
     #region Utils
     public void UpdateGamestate(int id)
     {
@@ -218,12 +221,9 @@ public class Clapper : MonoBehaviour
     {
         return (tgt - v).normalized * rate;
     }
-    #endregion
 
 
-
-
-  public static  void Setv(Transform v, float value, int index)
+    public static void Setv(Transform v, float value, int index)
     {
         Vector3 buf = v.localPosition;
         switch (index)
@@ -242,5 +242,10 @@ public class Clapper : MonoBehaviour
 
 
     }
+
+    #endregion
+
+
+
 
 }

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   completed: 0
   CamItem: {fileID: 0}
+  isGoal: 0
 --- !u!61 &2873349023620114471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87,6 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isactive: 0
+  Target: {fileID: 0}
   LastUser: {fileID: 0}
 --- !u!1 &2001792107183180510
 GameObject:

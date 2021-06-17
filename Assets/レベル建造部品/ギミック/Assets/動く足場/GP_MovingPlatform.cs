@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class GP_MovingPlatform : GP_GimmickBase
 {
     // Start is called before the first frame update
@@ -9,81 +10,100 @@ public class GP_MovingPlatform : GP_GimmickBase
     public GameObject PlatformCenter;
     private Vector2 Center;
 
-    Rigidbody2D rb;
+
     void Start()
     {
-        T=GetComponent<Transform>();
-        Debug.Log(pos1.transform.position+"P1");
-        Startpos=T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition-PlatformCenter.transform.localPosition);
 
-        Endpos=T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition-PlatformCenter.transform.localPosition);
-        
+        Debug.Log(pos1.transform.position + "P1");
+        Startpos = pos1.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition - PlatformCenter.transform.localPosition);
+
+        Endpos = pos2.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition - PlatformCenter.transform.localPosition);
 
 
-Camera camera=FindObjectOfType<Camera>();
 
- //       Startpos-=PlatformCenter.transform.position;
-   //     Endpos-=PlatformCenter.transform.position;
+        Camera camera = FindObjectOfType<Camera>();
 
-        pos1.SetActive(false);
-        pos2.SetActive(false);
+        //       Startpos-=PlatformCenter.transform.position;
+        //     Endpos-=PlatformCenter.transform.position;
 
-        rb=GetComponent<Rigidbody2D>();
-        T.position=Startpos;
-    
+
+
+        T.position = Startpos;
+
     }
+    void OnEnable()
+    {
+        TL_TimeLineMng.OnReset += ResetEvent;
+    }
+    void OnDisable()
+    {
+        TL_TimeLineMng.OnReset += ResetEvent;
+    }
+    void ResetEvent()
+    {
+        lerp = 0;
+        T.position = Startpos;
+        completed = false;
+    }
+
+    public bool test;
 
     // Update is called once per frame
     void Update()
     {
-        if(localtimer>TL_TimeLineMng.ctime)
+
+        T.position = Vector2.Lerp(Startpos, Endpos, lerp);
+        if (test)
         {
-            lerp=0;
-            T.position=Startpos;
-            completed=false;
+            T.position = Vector2.Lerp(Startpos, Endpos, 0);
+            lerp = 0;
+            test = false;
+            Startpos = pos1.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition - PlatformCenter.transform.localPosition);
+
+            Endpos = pos2.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition - PlatformCenter.transform.localPosition);
+
         }
-        localtimer=TL_TimeLineMng.ctime;
-    
+
     }
 
-    float localtimer=0;
-    public GameObject pos1;
-    public GameObject pos2;
+
+    public Transform pos1;
+    public Transform pos2;
 
 
-  public  Vector2 Startpos;
+    public Vector2 Startpos;
 
-  public  Vector2 Endpos;
+    public Vector2 Endpos;
 
-  public  float rate;
-  [Range(0,1)]
-  public  float lerp=0;
+    public float rate;
+    [Range(0, 1)]
+    public float lerp = 0;
 
-    Transform T;
-   public override void Event(bool state,PC_Base User)
+    public Transform T;
+    public override void Event(bool state, PC_Base User)
     {
-        if(state&&lerp<1.0f)
+        if (state && lerp < 1.0f)
         {
-          ///  rb.AddForce(Vector2.Lerp(Startpos,Endpos,lerp));
-            T.position=Vector2.Lerp(Startpos,Endpos,lerp);
-            lerp+=rate*TL_TimeLineMng.delta;
-        }else
-        if(lerp>=1.0f)
-        {
-            completed=true;
+
+            lerp += rate * TL_TimeLineMng.delta;
         }
-        
+        else
+        if (lerp >= 1.0f)
+        {
+            completed = true;
+        }
+
     }
 
-   
-   void OnCollisionEnter2D(Collision2D other)
-   {
-       other.gameObject.transform.SetParent(this.transform,true);
-   }
 
-   void OnCollisionExit2D(Collision2D other)
-   {
-       other.gameObject.transform.parent=null;
-   }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        other.gameObject.transform.SetParent(this.transform, true);
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        other.gameObject.transform.parent = null;
+    }
 
 }

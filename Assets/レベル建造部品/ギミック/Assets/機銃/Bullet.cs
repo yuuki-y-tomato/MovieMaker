@@ -12,8 +12,9 @@ public class Bullet : MonoBehaviour
     static Bullet Base;
     private static bool initiated = false;
 
-    public GR_EffectContainer Effect;
+    [Header("External")]
     public Material mat;
+    public GR_EffectContainer Effect;
 
     void Start()
     {
@@ -45,7 +46,7 @@ public class Bullet : MonoBehaviour
         isntances[isntances.Count - 1].speed = speed;
     }
 
-
+    [Header("Movement")]
     public dir Direction;
     public float speed;
     

@@ -9,81 +9,89 @@ using UnityEngine;
 public class PC_Type_Moover : PC_Base
 {
 
+
+
+    #region Components
+
     private Transform T;
-
-    public Vector3 velo;
-
-    public float speed;
-
-    public float drag = 0.7f;
-
-    float jumpTimer;
-    bool jumping;
-
-    public float JumpHeght;
-
-
     public Rigidbody2D rb;
+
+    [Header("External Components")]
+    public PC_Colchecker cirref;
+
+    #endregion
+
     public bool controlled;
 
-    public scri cirref;
-
-    float basegravity;
     void Start()
     {
         controlled = false;
         Physics2D.IgnoreLayerCollision(3, 3);
-
         velo = new Vector3();
-
-
         T = GetComponent<Transform>();
-
         rb = GetComponent<Rigidbody2D>();
-        basegravity = rb.gravityScale;
-
     }
 
-    public float hordrag;
-    public float vertdrag;
+
+    #region ResetEventHandler
+    void ResetEvent()
+    {
+        ResetInput();
+        rb.velocity = new Vector2();
+    }
+    void OnEnable()
+    {
+        TL_TimeLineMng.OnReset += ResetEvent;
+    }
+    void OnDisable()
+    {
+        TL_TimeLineMng.OnReset -= ResetEvent;
+    }
+    #endregion
 
 
-    int skipper = 0;
-
-    // Update is called once per frame
     void Update()
     {
-        rb.gravityScale = basegravity * TL_TimeLineMng.mult;
-        //   skipper++;
-        //  if (skipper % (TL_TimeLineMng.mult) == 0 && TL_TimeLineMng.ctime > 0.001f)
-        {
-            move();
-            T.position += velo;
 
-            velo.x *= hordrag;
-            //            velo *= drag;
-
-
-        }
+        move();
 
 
 
 
         if (Input.GetKey(KeyCode.R))
         {
-            rb.velocity = new Vector2();
-
+            TL_TimeLineMng.ResetTimer();
         }
 
         //        Use();
     }
-    public float JumpGravity;
-    public float FallGravity;
-    public float JumpThreshhold;
+
+    //MOVEMENT FUNCTIONS
+    #region Movement
+    public Vector3 velo;
 
     void move()
     {
 
+        Walk();
+        Jump();
+
+        T.position += velo;
+
+        velo.x *= Drag;
+
+
+
+    }
+
+    #region Walk
+
+    [Header("Walk")]
+    public float Drag;
+    public float speed;
+
+    void Walk()
+    {
         if (Right)
         {
 
@@ -105,42 +113,55 @@ public class PC_Type_Moover : PC_Base
             velo.x = 0;
         }
 
-        //        if (X && !jumping)
-        if (X && cirref.b && !jumping)
+
+
+    }
+
+    #endregion
+
+    #region Jump
+
+    #region  Variable
+    float jumpTimer;
+    bool isjumping;
+    [Header("Jump")]
+    [SerializeField] public float JumpHeght;
+    [Header("Gravity")]
+    [SerializeField] public float JumpGravity;
+    [SerializeField] public float FallGravity;
+    [SerializeField] public float JumpThreshhold;
+    #endregion
+
+    void Jump()
+    {
+        if (X && cirref.b && !isjumping)
         {
-            jumping = true;
-            //   vel
-            //  jumpTimer=JumpVelocity;
-            //   rb.AddForce(new Vector2(0, JumpHeght));
-            //vertical_vel = JumpHeght;
-            //  velo.y = JumpHeght;
+            isjumping = true;
+
             rb.AddForce(new Vector2(0, JumpHeght));
         }
-        if (cirref.b && jumping && !X)
+        if (cirref.b && isjumping && !X)
         {
-            jumping = false;
+            isjumping = false;
         }
 
-        if (rb.velocity.y < JumpThreshhold && !X)
-        {
-            rb.gravityScale = FallGravity;
-        }
-        else
+        if (rb.velocity.y > JumpThreshhold && !X)
         {
             rb.gravityScale = JumpGravity;
 
         }
-
-
-
-        if (Input.GetKey(KeyCode.R))
+        else
         {
-            TL_TimeLineMng.ResetTimer();
-
-            ResetInput();
+            rb.gravityScale = FallGravity;
         }
 
     }
+    #endregion
+
+    #endregion
+
+    //INTERACTION FUNCTIONS
+    #region Use
 
 
     public GameObject UseTarget;
@@ -158,6 +179,11 @@ public class PC_Type_Moover : PC_Base
 
 
     }
+    #endregion
+
+
+
+    #region Collision
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -170,7 +196,7 @@ public class PC_Type_Moover : PC_Base
 
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Usable")
         {
@@ -191,6 +217,6 @@ public class PC_Type_Moover : PC_Base
         UseTarget.GetComponent<GP_Usable>().Dispatch(false, this);
     }
 
-
+    #endregion
 
 }

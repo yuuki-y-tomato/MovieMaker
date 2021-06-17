@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 973406935633644122}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Scaler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 464171325041895517}
   - component: {fileID: 4806271642749044797}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 8816952607105631971}
   - component: {fileID: 5461543527153377368}
   m_Layer: 0
-  m_Name: cir
+  m_Name: Collision Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,15 +458,13 @@ MonoBehaviour:
   Up: 0
   Down: 0
   Right: 0
-  velo: {x: 0, y: 0, z: 0}
-  speed: 5
-  drag: 0.75
-  JumpHeght: 2
   rb: {fileID: 0}
-  controlled: 0
   cirref: {fileID: 5461543527153377368}
-  hordrag: 0.5
-  vertdrag: 0.75
+  controlled: 0
+  velo: {x: 0, y: 0, z: 0}
+  Drag: 0
+  speed: 5
+  JumpHeght: 1000
   JumpGravity: 6
   FallGravity: 10
   JumpThreshhold: 1
@@ -606,7 +604,7 @@ PrefabInstance:
     - target: {fileID: 8908253137889277173, guid: 1520973c4664ba649ae331ea65da1660,
         type: 3}
       propertyPath: m_Name
-      value: GameObject
+      value: Animator
       objectReference: {fileID: 0}
     - target: {fileID: 9017400526590988252, guid: 1520973c4664ba649ae331ea65da1660,
         type: 3}

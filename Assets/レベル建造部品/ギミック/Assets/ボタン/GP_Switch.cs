@@ -5,20 +5,25 @@ using UnityEngine;
 public class GP_Switch : GP_Usable
 {
 
+    [Header("Instance Base")]
     public Material LineMatBase;
     List<Material> linemat;
-
+    [Header("Sprites")]
     public Sprite inactive_sp;
     public Sprite active_sp;
     public SpriteRenderer sprite;
 
-    public LineRenderer Base;
+
+    [Header("Line")]
+    public LineRenderer LineBase;
     public List<LineRenderer> lines;
     public bool Showline;
 
+    [Header("LineSpeed")]
     public float speed;
-    //  Vector3[] tpos;
     public float linemul = 1;
+
+    [Header("Target Objects")]
     public List<GP_MovingPlatform> Targets;
 
 
@@ -29,15 +34,18 @@ public class GP_Switch : GP_Usable
         linemat = new List<Material>();
         this.tag = "Usable";
         lines = new List<LineRenderer>();
-        Debug.Log(Targets.Count);
+        //Debug.Log(Targets.Count);
+        
+        
+        
         if (Showline)
         {
             for (int i = 0; i < Targets.Count; i++)
             {
-                lines.Add(Instantiate(Base));
+                lines.Add(Instantiate(LineBase));
                 linemat.Add(Instantiate(LineMatBase));
                 lines[i].SetPosition(1, transform.position);
-                lines[i].SetPosition(0, Targets[i].transform.position);
+                lines[i].SetPosition(0, Targets[i].T.position);
                 lines[i].material = linemat[i];
 
             }

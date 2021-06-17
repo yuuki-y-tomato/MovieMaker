@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8622475744772499936}
   - component: {fileID: 8402803573417612556}
   m_Layer: 0
-  m_Name: ButtonTest
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4969434995014575131}
   - component: {fileID: 801916077406240401}
   m_Layer: 7
-  m_Name: Switch
+  m_Name: "\u30DC\u30BF\u30F3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isactive: 0
-  Targets: []
+  Target: {fileID: 0}
   LastUser: {fileID: 0}
   LineMatBase: {fileID: 2100000, guid: 440575eae9fdb41419095952cbb88d4f, type: 2}
   inactive_sp: {fileID: 21300000, guid: 88ddabd9ca3a76e469a18eef630082b0, type: 3}
@@ -197,6 +197,7 @@ MonoBehaviour:
   Showline: 0
   speed: 0
   linemul: 1
+  Targets: []
 --- !u!1 &8180587151986439074
 GameObject:
   m_ObjectHideFlags: 0

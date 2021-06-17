@@ -88,11 +88,7 @@ else
     }
         public static bool GetX()
     {
-            if(Input.GetButtonDown("X"))
-            {
-                return true;
-            }else
-            if(Input.GetKey(KeyCode.Space))
+            if(Input.GetButtonDown("X")||Input.GetKeyDown(KeyCode.Space))
             {
                 return true;
             }
