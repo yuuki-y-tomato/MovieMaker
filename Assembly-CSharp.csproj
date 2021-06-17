@@ -79,6 +79,7 @@
      <Compile Include="Assets\ゲームプレイ\PC\PC_Base.cs" />
      <Compile Include="Assets\レベル建造部品\ギミック\Assets\機銃\Bullet.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG_StateMng.cs" />
+     <Compile Include="Assets\UT_Snapper.cs" />
      <Compile Include="Assets\Particles\PC_Animation.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG\UI_TimelineMng.cs" />
      <Compile Include="Assets\Samples\Input System\1.0.2\Simple Demo\SimpleController_UsingActionAsset.cs" />
@@ -93,7 +94,6 @@
      <Compile Include="Assets\ゲームプレイ\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\TL_TimeLineMng.cs" />
      <Compile Include="Assets\レベル建造部品\ギミック\Assets\針\GP_DeathBox.cs" />
-     <Compile Include="Assets\UT_Snapper.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\LevelSelect\Strip.shader" />
