@@ -447,6 +447,18 @@ Transform:
   m_Father: {fileID: 1127703354}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &65821708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8817543833278557011, guid: db1e598bccf235542abf6e2c7d527571,
+    type: 3}
+  m_PrefabInstance: {fileID: 1889761666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb001219ef06beb429a78d95d0e6d079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &146337347
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +707,7 @@ SpriteRenderer:
   m_Size: {x: 1.0434783, y: 1.0434783}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &404687082
@@ -928,7 +940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterOrder:
   - {fileID: 352476225}
-  - {fileID: 0}
+  - {fileID: 65821708}
   CurrentActor: 0
   fademat: {fileID: 2100000, guid: 102be5203baa7ac448f86e5fa878c5e9, type: 2}
   Takes: 0
@@ -972,6 +984,11 @@ PrefabInstance:
       propertyPath: Targets.Array.data[0]
       value: 
       objectReference: {fileID: 1882597046}
+    - target: {fileID: 5165491424129658630, guid: 0d5f9615b81206941aa93d2c39a3363f,
+        type: 3}
+      propertyPath: isGoal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5165491424129658630, guid: 0d5f9615b81206941aa93d2c39a3363f,
         type: 3}
       propertyPath: fadespeed
@@ -7517,7 +7534,7 @@ SpriteRenderer:
   m_Size: {x: 1.0434783, y: 1.0434783}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &2024245787
@@ -10942,6 +10959,11 @@ PrefabInstance:
       propertyPath: Targets.Array.data[0]
       value: 
       objectReference: {fileID: 1011594158}
+    - target: {fileID: 5165491424129658630, guid: 0d5f9615b81206941aa93d2c39a3363f,
+        type: 3}
+      propertyPath: isGoal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5165491424129658630, guid: 0d5f9615b81206941aa93d2c39a3363f,
         type: 3}
       propertyPath: CamItem
