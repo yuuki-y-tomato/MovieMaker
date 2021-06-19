@@ -271,9 +271,6 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
         <HintPath>/home/marciem/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="GitHub.Unity.45">
-        <HintPath>/home/marciem/Proj/git/MovieMaker/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.NRefactory">
         <HintPath>/home/marciem/Proj/git/MovieMaker/Library/PackageCache/com.unity.render-pipelines.core@10.2.2/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>

@@ -267,9 +267,6 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
         <HintPath>/home/marciem/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="GitHub.Unity.45">
-        <HintPath>/home/marciem/Proj/git/MovieMaker/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.NRefactory">
         <HintPath>/home/marciem/Proj/git/MovieMaker/Library/PackageCache/com.unity.render-pipelines.core@10.2.2/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
@@ -626,10 +623,6 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{ca464f32-b358-295b-d37c-e724c9b7a4f7}</Project>
       <Name>Assembly-CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
-      <Project>{800599a3-5946-1838-f9f3-01c2867ed76f}</Project>
-      <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
       <Project>{91d940f0-0e18-0c2f-d803-8fb2f5c1b1a0}</Project>

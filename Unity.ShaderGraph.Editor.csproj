@@ -115,8 +115,8 @@
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Implementation\IHasDependencies.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Generation\Processors\PropertyCollector.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Legacy\GroupData0.cs" />
-     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Generation\Enumerations\KeywordDefinition.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Nodes\Input\Texture\SampleTexture2DArrayNode.cs" />
+     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Generation\Enumerations\KeywordDefinition.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Drawing\Views\HlslFunctionView.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Nodes\IPropertyFromNode.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Nodes\Utility\SubGraphNode.cs" />
@@ -201,8 +201,8 @@
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Drawing\Manipulators\ResizeSideHandle.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Graphs\CubemapMaterialSlot.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Util\CreateSerializableGraph.cs" />
-     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Interfaces\Graph\IOnAssetEnabled.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Generation\TargetResources\BlockFields.cs" />
+     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Interfaces\Graph\IOnAssetEnabled.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Util\ValueUtilities.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Nodes\Utility\KeywordNode.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Graphs\SerializableMesh.cs" />
@@ -396,8 +396,8 @@
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Drawing\Colors\ColorManager.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Attributes\BuiltinKeywordAttribute.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Nodes\Utility\Logic\NotNode.cs" />
-     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Generation\Collections\StructCollection.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Interfaces\IMayRequireBitangent.cs" />
+     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Generation\Collections\StructCollection.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Graphs\Texture3DInputMaterialSlot.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\SubGraph\SubGraphOutputNode.cs" />
      <Compile Include="Library\PackageCache\com.unity.shadergraph@10.2.2\Editor\Data\Nodes\Input\Matrix\TransformationMatrixNode.cs" />
@@ -911,9 +911,6 @@
     </Reference>
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
         <HintPath>/home/marciem/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="GitHub.Unity.45">
-        <HintPath>/home/marciem/Proj/git/MovieMaker/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
         <HintPath>/home/marciem/Proj/git/MovieMaker/Library/PackageCache/com.unity.render-pipelines.core@10.2.2/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>

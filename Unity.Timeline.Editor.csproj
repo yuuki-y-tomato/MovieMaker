@@ -159,8 +159,8 @@
      <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\Window\TimelineWindow_ActiveTimeline.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\Extensions\AnimationTrackExtensions.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\Window\WindowConstants.cs" />
-     <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\Manipulators\EditMode.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\treeview\Snapping\ISnappable.cs" />
+     <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\Manipulators\EditMode.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\treeview\Drawers\Layers\ClipsLayer.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\Manipulators\TimeIndicator.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.2.12\Editor\treeview\InlineCurveEditor.cs" />
@@ -499,9 +499,6 @@
     </Reference>
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
         <HintPath>/home/marciem/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="GitHub.Unity.45">
-        <HintPath>/home/marciem/Proj/git/MovieMaker/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
         <HintPath>/home/marciem/Proj/git/MovieMaker/Library/PackageCache/com.unity.render-pipelines.core@10.2.2/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
