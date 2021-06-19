@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\ゲームプレイ\カメラエフェクト\CAM_Gameplay.cs" />
      <Compile Include="Assets\LevelSelect\LevelInfo.cs" />
+     <Compile Include="Assets\Line.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\scri.cs" />
      <Compile Include="Assets\ゲームプレイ\UI\MG\inst_TL\UI_TL_inst_Icon.cs" />
      <Compile Include="Assets\レベル建造部品\ギミック\Assets\ゴール\GP_Cammaker.cs" />
@@ -46,6 +47,7 @@
      <Compile Include="Assets\レベル建造部品\ギミック\Assets\ゴール\GP_Goal_Use.cs" />
      <Compile Include="Assets\ゲームプレイ\PC\PC_Colchecker.cs" />
      <Compile Include="Assets\レベル建造部品\ギミック\Assets\ボタン\GP_GimmickBase.cs" />
+     <Compile Include="Assets\Cam_Overlay.cs" />
      <Compile Include="Assets\Samples\Input System\1.0.2\Simple Demo\SimpleController_UsingActions.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG\TL_Manager.cs" />
      <Compile Include="Assets\ゲームプレイ\不必要\OBSOLETE\UT_CharIcon.cs" />
@@ -79,6 +81,7 @@
      <Compile Include="Assets\ゲームプレイ\PC\PC_Base.cs" />
      <Compile Include="Assets\レベル建造部品\ギミック\Assets\機銃\Bullet.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG_StateMng.cs" />
+     <Compile Include="Assets\ゲームプレイ\PC\colcir.cs" />
      <Compile Include="Assets\UT_Snapper.cs" />
      <Compile Include="Assets\Particles\PC_Animation.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\MG\UI_TimelineMng.cs" />
@@ -94,6 +97,7 @@
      <Compile Include="Assets\ゲームプレイ\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\Managers\TL_TimeLineMng.cs" />
      <Compile Include="Assets\レベル建造部品\ギミック\Assets\針\GP_DeathBox.cs" />
+     <Compile Include="Assets\CC_Test.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\LevelSelect\Strip.shader" />
@@ -695,10 +699,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{d0a1eca4-7954-6dee-5c6e-faf01eaf128b}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
       <Project>{1a72b672-ed92-5d06-9102-acfb8151c58f}</Project>
       <Name>Unity.2D.Tilemap.Extras</Name>

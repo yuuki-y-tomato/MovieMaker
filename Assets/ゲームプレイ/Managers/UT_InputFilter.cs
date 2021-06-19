@@ -11,63 +11,64 @@ public class UT_InputFilter : MonoBehaviour
     public static float Axis;
 
     public static float GetHor()
-    {    
-      return Input.GetAxis("Horizontal");
-        
+    {
+        return Input.GetAxis("Horizontal");
+
     }
     public static float GetVer()
-    {    
-      return Input.GetAxis("Vertical");
+    {
+        return Input.GetAxis("Vertical");
     }
-    
-        public static bool GetR()
-    {    
+
+    public static bool GetR()
+    {
 
 
-        if(Input.GetAxis("Horizontal")>0)
+        if (Input.GetAxis("Horizontal") > 0)
         {
             return true;
-        }else
-        if(Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D))
+        }
+        else
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             return true;
         }
 
 
-    return false;
+        return false;
     }
     public static bool GetL()
-    {    
-    if(Input.GetAxis("Horizontal")<0)
+    {
+        if (Input.GetAxis("Horizontal") < 0)
         {
             return true;
         }
-else
-        if(Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A))
+        else
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             return true;
         }
-    return false;
+        return false;
     }
-       public static bool GetU()
-    {    
-      
-        if(Input.GetAxis("Vertical")>0)
+    public static bool GetU()
+    {
+
+        if (Input.GetAxis("Vertical") > 0)
         {
             return true;
         }
 
-    return false;
+        return false;
     }
     public static bool GetD()
-    {    
-      
-        if(Input.GetAxis("Vertical")<0)
+    {
+
+        if (Input.GetAxis("Vertical") < 0)
         {
             return true;
         }
 
-    return false;
+        return false;
     }
 
 
@@ -86,12 +87,12 @@ else
     {
         return Input.GetButtonDown("Square");
     }
-        public static bool GetX()
+    public static bool GetX()
     {
-            if(Input.GetButtonDown("X")||Input.GetKeyDown(KeyCode.Space))
-            {
-                return true;
-            }
+        if (Input.GetButtonDown("X") || Input.GetKey(KeyCode.Space))
+        {
+            return true;
+        }
 
         return false;
     }

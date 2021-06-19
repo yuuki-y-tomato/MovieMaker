@@ -8,7 +8,7 @@ public class GP_Switch_Editor : Editor
 {
     public enum DisplayCategory
     {
-        Components, Objects
+        Variables,Components 
     }
 
 
@@ -24,7 +24,7 @@ public class GP_Switch_Editor : Editor
             case DisplayCategory.Components:
         DisplayComponents();
             break;
-                   case DisplayCategory.Objects:
+                   case DisplayCategory.Variables:
         DisplayObjects();
             break;
 
@@ -59,6 +59,8 @@ public class GP_Switch_Editor : Editor
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("linemul"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("LineSize"));
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Targets"));
   
 

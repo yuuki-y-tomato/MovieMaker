@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.TextMeshPro", "Unity.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Extras", "Unity.2D.Tilemap.Extras.csproj", "{1a72b672-ed92-5d06-9102-acfb8151c58f}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{d0a1eca4-7954-6dee-5c6e-faf01eaf128b}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Core.ShaderLibrary", "Unity.RenderPipelines.Core.ShaderLibrary.csproj", "{ba5dfbe4-6d8c-da59-b092-f649c6dfeb4c}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary", "Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj", "{ca0c0ca7-17a1-4976-fcb4-eb92a0d761b9}"
@@ -80,8 +78,6 @@ Global
 		{40caf1cc-448d-563e-537f-42ff44ce556a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1a72b672-ed92-5d06-9102-acfb8151c58f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1a72b672-ed92-5d06-9102-acfb8151c58f}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{d0a1eca4-7954-6dee-5c6e-faf01eaf128b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{d0a1eca4-7954-6dee-5c6e-faf01eaf128b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ba5dfbe4-6d8c-da59-b092-f649c6dfeb4c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ba5dfbe4-6d8c-da59-b092-f649c6dfeb4c}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ca0c0ca7-17a1-4976-fcb4-eb92a0d761b9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

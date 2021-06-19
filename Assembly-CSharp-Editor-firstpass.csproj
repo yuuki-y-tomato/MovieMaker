@@ -636,10 +636,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{d0a1eca4-7954-6dee-5c6e-faf01eaf128b}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
       <Project>{91d940f0-0e18-0c2f-d803-8fb2f5c1b1a0}</Project>
       <Name>UnityEngine.TestRunner</Name>

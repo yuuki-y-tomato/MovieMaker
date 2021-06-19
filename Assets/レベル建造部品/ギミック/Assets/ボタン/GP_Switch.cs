@@ -5,7 +5,7 @@ using UnityEngine;
 public class GP_Switch : GP_Usable
 {
 
-    [Header("Instance Base")]
+    [Header("Instantiate用")]
     public Material LineMatBase;
     List<Material> linemat;
     [Header("Sprites")]
@@ -19,11 +19,11 @@ public class GP_Switch : GP_Usable
     public List<LineRenderer> lines;
     public bool Showline;
 
-    [Header("LineSpeed")]
+    [Header("線")]
     public float speed;
     public float linemul = 1;
-
-    [Header("Target Objects")]
+    public float LineSize = 0.5f;
+    [Header("線ターゲット")]
     public List<GP_MovingPlatform> Targets;
 
 
@@ -34,26 +34,25 @@ public class GP_Switch : GP_Usable
         linemat = new List<Material>();
         this.tag = "Usable";
         lines = new List<LineRenderer>();
-        //Debug.Log(Targets.Count);
-        
-        
-        
+
+
+
         if (Showline)
         {
             for (int i = 0; i < Targets.Count; i++)
             {
                 lines.Add(Instantiate(LineBase));
                 linemat.Add(Instantiate(LineMatBase));
-                lines[i].SetPosition(1, transform.position);
+                lines[i].SetPosition(1, this.transform.position);
                 lines[i].SetPosition(0, Targets[i].T.position);
+
+
                 lines[i].material = linemat[i];
 
             }
-            //      tpos = new Vector3[Targets.Count];
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         foreach (var b in Targets)
@@ -68,20 +67,23 @@ public class GP_Switch : GP_Usable
 
                 for (int i = 0; i < Targets.Count; i++)
                 {
-
-                    //  tpos[i]+=((Targets[i].transform.position-transform.position).normalized)*speed*Time.deltaTime;
-
-                    lines[i].SetPosition(1, transform.position);
+                    //* 線座標
+                    lines[i].SetPosition(1, transform.position + new Vector3(0, 0, 1));
                     lines[i].SetPosition(0, Targets[i].PlatformCenter.transform.position);
+                  
+                    //* シェーダーアニメーション
                     linemat[i].SetFloat("_Repeat", 2.0f / Vector3.Distance(lines[i].GetPosition(0), lines[i].GetPosition(1)));
                     linemat[i].SetFloat("_time", TL_TimeLineMng.ctime * linemul);
+                 
+                    //*線太さ
+                    lines[i].startWidth = LineSize;
+                    lines[i].endWidth = LineSize;
                 }
             }
             else
             {
                 for (int i = 0; i < Targets.Count; i++)
                 {
-                    //  tpos[i] = new Vector3();
                     lines[i].SetPosition(0, new Vector3(-1000000, 0, 0));
                     lines[i].SetPosition(1, new Vector3(-1000000, 0, 0));
                 }

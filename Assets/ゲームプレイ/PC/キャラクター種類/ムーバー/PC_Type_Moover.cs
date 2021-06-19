@@ -76,9 +76,8 @@ public class PC_Type_Moover : PC_Base
         Walk();
         Jump();
 
-        T.position += velo;
-
-        velo.x *= Drag;
+        T.position += velo * TL_TimeLineMng.delta;
+        velo.x *= Drag * TL_TimeLineMng.mult;
 
 
 
@@ -94,8 +93,7 @@ public class PC_Type_Moover : PC_Base
     {
         if (Right)
         {
-
-            velo.x += TL_TimeLineMng.delta * speed;
+            velo.x += speed;
         }
         if (cirref.r && velo.x > 0)
         {
@@ -105,8 +103,7 @@ public class PC_Type_Moover : PC_Base
 
         if (Left)
         {
-
-            velo.x -= TL_TimeLineMng.delta * speed;
+            velo.x -= speed;
         }
         if (cirref.l && velo.x < 0)
         {
@@ -164,14 +161,14 @@ public class PC_Type_Moover : PC_Base
     #region Use
 
 
-    public GameObject UseTarget;
+    GameObject UseTarget;
     public bool Usable = false;
 
     bool previnput;
     void Use()
     {
 
-        if (Usable && Down != previnput)
+        if (Usable && Down != previnput && UseTarget != null)
         {
             previnput = Down;
             UseTarget.GetComponent<GP_Usable>().Dispatch(Down, this);
@@ -200,8 +197,6 @@ public class PC_Type_Moover : PC_Base
     {
         if (other.gameObject.tag == "Usable")
         {
-            //    Debug.Log("USABLE");
-
             UseTarget = other.gameObject;
             Usable = true;
 
@@ -213,8 +208,10 @@ public class PC_Type_Moover : PC_Base
     private void OnTriggerExit2D(Collider2D other)
     {
         //        Debug.Log("Exit");
-
-        UseTarget.GetComponent<GP_Usable>().Dispatch(false, this);
+        if (other.gameObject.tag == "Usable")
+        {
+            UseTarget.GetComponent<GP_Usable>().Dispatch(false, this);
+        }
     }
 
     #endregion
