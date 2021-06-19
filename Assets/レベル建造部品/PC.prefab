@@ -57,7 +57,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838985648175994140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78660a8a63312f74fa19a3e12c5c4766, type: 3}
+  m_Script: {fileID: 11500000, guid: 8779b94bc4f1801429488624e8a772a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2233464077234564062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78660a8a63312f74fa19a3e12c5c4766, type: 3}
+  m_Script: {fileID: 11500000, guid: 8779b94bc4f1801429488624e8a772a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
@@ -163,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3266103431704063976}
   - component: {fileID: 8476115268111445916}
-  - component: {fileID: 9016222140357180040}
+  - component: {fileID: 8160705851205175769}
   m_Layer: 6
   m_Name: R
   m_TagString: Untagged
@@ -201,7 +201,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &9016222140357180040
+--- !u!114 &8160705851205175769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4737163141995049736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78660a8a63312f74fa19a3e12c5c4766, type: 3}
+  m_Script: {fileID: 11500000, guid: 8779b94bc4f1801429488624e8a772a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7398667216622640952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78660a8a63312f74fa19a3e12c5c4766, type: 3}
+  m_Script: {fileID: 11500000, guid: 8779b94bc4f1801429488624e8a772a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   L: {fileID: 6643244533562116347}
-  R: {fileID: 9016222140357180040}
+  R: {fileID: 8160705851205175769}
   B: {fileID: 8533297608422277021}
   B2: {fileID: 2992238793264202764}
   l: 0
@@ -463,7 +463,7 @@ MonoBehaviour:
   controlled: 0
   velo: {x: 0, y: 0, z: 0}
   Drag: 0
-  speed: 5
+  speed: 6
   JumpHeght: 1000
   JumpGravity: 6
   FallGravity: 10
