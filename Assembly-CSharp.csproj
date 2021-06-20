@@ -75,7 +75,7 @@
      <Compile Include="Assets\ゲームプレイ\メインゲーム\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\マネージャー\TL_TimeLineMng.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\針\GP_DeathBox.cs" />
-     <Compile Include="Assets\シーン\test.cs" />
+     <Compile Include="Assets\ゲームプレイ\メインゲーム\カメラ\CAM_Overlay.cs" />
      <None Include="Assets\プラグイン\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\プラグイン\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\グラフィック\レベルセレクト\Material\Strip.shader" />

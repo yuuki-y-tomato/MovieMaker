@@ -73,7 +73,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _repeat: 1
-    - _slider: 1.0049993
+    - _slider: 1
     - _time: 3.7540703
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

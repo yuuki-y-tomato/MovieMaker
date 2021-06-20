@@ -20,13 +20,13 @@ public class MG_StateManager : MonoBehaviour
 
     public int Takes;
     public int Actors;
-  
+
 
     void Start()
     {
-   
-        Takes=0;
-        Actors=CharacterOrder.Count;
+
+        Takes = 0;
+        Actors = CharacterOrder.Count;
         PC_Control.UpdateTarget(CharacterOrder[0]);
         FindObjectOfType<CAM_Gameplay>().UpdateTarget(CharacterOrder[0]);
         StartCoroutine(ChangeState(States.Ready));
@@ -46,29 +46,29 @@ public class MG_StateManager : MonoBehaviour
         }
     }
 
-private bool fading=false;
+    private bool fading = false;
 
     public void RestartScene()
     {
         Debug.Log("aaa");
-        if(!fading)
+        if (!fading)
         {
-            fading=true;
-        CharacterOrder[CurrentActor].HardReset();
+            fading = true;
+            CharacterOrder[CurrentActor].HardReset();
 
-        foreach (var b in CharacterOrder)
-        {
-            b.ResetInput();
-            b.completed = false;
-        }
+            foreach (var b in CharacterOrder)
+            {
+                b.ResetInput();
+                b.completed = false;
+            }
 
 
-        PC_Control.TargetTL.EventList.Clear();
-//        TL_TimeLineMng.ResetTimer();
-        StartCoroutine(ChangeState(States.Ready));
-            Takes+=1;
+            PC_Control.TargetTL.EventList.Clear();
+            //        TL_TimeLineMng.ResetTimer();
+            StartCoroutine(ChangeState(States.Ready));
+            Takes += 1;
 
-        TL_TimeLineMng.run(false);
+            TL_TimeLineMng.run(false);
         }
 
 
@@ -88,7 +88,7 @@ private bool fading=false;
             CurrentActor++;
             PC_Control.UpdateTarget(CharacterOrder[CurrentActor]);
 
-        StartCoroutine(ChangeState(States.Ready));
+            StartCoroutine(ChangeState(States.Ready));
 
             FindObjectOfType<CAM_Gameplay>().UpdateTarget(CharacterOrder[CurrentActor]);
         }
@@ -106,7 +106,7 @@ private bool fading=false;
             TL_TimeLineMng.ResetTimer();
 
 
-        StartCoroutine(ChangeState( States.Replay));
+            StartCoroutine(ChangeState(States.Replay));
 
         }
 
@@ -115,26 +115,27 @@ private bool fading=false;
 
     IEnumerator ChangeState(States tgt)
     {
-        float k=1;
-       while(k>0)
+        float k = 1;
+        while (k > 0)
         {
-            k-=Time.deltaTime*4;
-            fademat.SetFloat("_Fade",k);
+            k -= Time.deltaTime * 4;
+            fademat.SetFloat("_Fade", k);
             yield return null;
         }
-                    TL_TimeLineMng.ResetTimer();
-            TL_TimeLineMng.run(false);
-        state=tgt;
-    yield return new WaitForSeconds(0.5f);
+        TL_TimeLineMng.ResetTimer();
+        TL_TimeLineMng.run(false);
+        state = tgt;
+        yield return new WaitForSeconds(0.5f);
 
-                while(k<1)
+        while (k < 1)
         {
-            k+=Time.deltaTime*4;
-            fademat.SetFloat("_Fade",k);
+            k += Time.deltaTime * 4;
+            fademat.SetFloat("_Fade", k);
             yield return null;
         }
-        fading=false;
+        fading = false;
     }
 
 
+   
 }
