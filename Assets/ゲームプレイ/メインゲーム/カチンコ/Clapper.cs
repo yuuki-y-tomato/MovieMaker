@@ -56,7 +56,7 @@ public class Clapper : MonoBehaviour
                 GamePlay();
                 break;
         }
-        SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.Max_acc);
+        SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.GetTimelim());
 
     }
 
@@ -174,7 +174,7 @@ public class Clapper : MonoBehaviour
     {
         GP_UpdateSlider();
 
-        TimerText.text = ((int)(TL_TimeLineMng.Max_acc - TL_TimeLineMng.ctime)).ToString();
+        TimerText.text = ((int)(TL_TimeLineMng.GetTimelim() - TL_TimeLineMng.ctime)).ToString();
 
     }
 

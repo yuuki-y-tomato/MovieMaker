@@ -8,6 +8,7 @@ public class CAM_Overlay : MonoBehaviour
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
-        Graphics.Blit(src,dest);
+        fademat.SetTexture("_MainTex",src);
+        Graphics.Blit(src,dest,fademat);
     }
 }

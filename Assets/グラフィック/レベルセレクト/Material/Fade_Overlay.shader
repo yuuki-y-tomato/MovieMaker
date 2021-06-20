@@ -5,6 +5,8 @@ Shader "Hidden/Fader"
         _MainTex ("Texture", 2D) = "white" {}
         _Fade("Fade",Range(0,1))=0.0
         _Overlay("OverlayTex", 2D)="white"{}
+        _Rotation("Rotation",float)=0
+        _FadeMult("FadeMult",Range(1,2))=1
     }
     SubShader
     {
@@ -48,15 +50,25 @@ Shader "Hidden/Fader"
 
             sampler2D _MainTex;
             float _Fade;
+            float _Rotation;
+            float _FadeMult;
 
             fixed4 frag (v2f i) : SV_Target
             {
+
+                float2 rotatedUV=float2
+                (
+                    i.uv.x*cos(_Rotation)-i.uv.y*sin(_Rotation),
+                    i.uv.x*sin(_Rotation)+i.uv.y*cos(_Rotation)
+
+                );
+
                 fixed4 col = tex2D(_MainTex, i.uv);
-                fixed4 ol=tex2D(_Overlay,i.uv);
-                ol*=(i.uv.x>_Fade);
+                fixed4 ol=tex2D(_Overlay,rotatedUV);
+                ol*=(rotatedUV.x>_Fade*_FadeMult);
         
 //            col+=ol;
-            if((i.uv.x>_Fade))
+            if((rotatedUV.x>_Fade*_FadeMult))
             {
                 col=ol;
             }
