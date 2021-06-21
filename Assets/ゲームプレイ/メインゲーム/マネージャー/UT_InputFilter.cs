@@ -10,16 +10,19 @@ public class UT_InputFilter : MonoBehaviour
 
     public static float Axis;
 
+    //*左スティック横軸入力を返す
     public static float GetHor()
     {
         return Input.GetAxis("Horizontal");
 
     }
+    //*左スティック縦入力を返す
     public static float GetVer()
     {
         return Input.GetAxis("Vertical");
     }
 
+    //*左スティック右入力されている場合trueを返す
     public static bool GetR()
     {
 
@@ -37,6 +40,7 @@ public class UT_InputFilter : MonoBehaviour
 
         return false;
     }
+    //*左スティック左入力されている場合trueを返す
     public static bool GetL()
     {
         if (Input.GetAxis("Horizontal") < 0)
@@ -50,6 +54,7 @@ public class UT_InputFilter : MonoBehaviour
         }
         return false;
     }
+    //*左スティック上入力されている場合trueを返す
     public static bool GetU()
     {
 
@@ -60,6 +65,7 @@ public class UT_InputFilter : MonoBehaviour
 
         return false;
     }
+    //*左スティック下入力されている場合trueを返す
     public static bool GetD()
     {
 
@@ -72,21 +78,26 @@ public class UT_InputFilter : MonoBehaviour
     }
 
 
+    //右側＝ABXYボタンのこと
 
-
-
+    //*右側、右ボタン入力の場合True 
     public static bool GetCir()
     {
         return Input.GetButtonDown("Circle");
     }
+    //*右側、上ボタン入力の場合True 
     public static bool GetTriangle()
     {
         return Input.GetButtonDown("Triangle");
     }
+    
+    //*右側、左ボタン入力の場合True 
     public static bool GetSquare()
     {
         return Input.GetButtonDown("Square");
     }
+
+    //*右側、下ボタン入力の場合True 
     public static bool GetX()
     {
         if (Input.GetButtonDown("X") || Input.GetKey(KeyCode.Space))
@@ -97,5 +108,11 @@ public class UT_InputFilter : MonoBehaviour
         return false;
     }
 
+
+    //*右トリガー入力している間、Trueを返す
+    public static bool GetRTrigger()
+    {
+        return false;
+    }
 
 }
