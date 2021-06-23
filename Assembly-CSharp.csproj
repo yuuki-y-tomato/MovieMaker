@@ -40,6 +40,7 @@
      <Compile Include="Assets\ゲームプレイ\レベルセレクト\LevelInfo.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\コリジョン\scri.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Cammaker.cs" />
+     <Compile Include="Assets\Line.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Goal_Use.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\コリジョン\PC_Colchecker.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ボタン\GP_GimmickBase.cs" />
