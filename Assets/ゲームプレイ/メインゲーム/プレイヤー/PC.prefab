@@ -463,8 +463,8 @@ MonoBehaviour:
   controlled: 0
   velo: {x: 0, y: 0, z: 0}
   Drag: 0
-  speed: 6
-  JumpHeght: 1000
+  speed: 5.75
+  JumpHeght: 1125
   JumpGravity: 6
   FallGravity: 10
   JumpThreshhold: 1

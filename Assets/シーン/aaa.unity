@@ -1267,6 +1267,16 @@ PrefabInstance:
     - target: {fileID: 8817543833278557011, guid: db1e598bccf235542abf6e2c7d527571,
         type: 3}
       propertyPath: speed
+      value: 8.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817543833278557011, guid: db1e598bccf235542abf6e2c7d527571,
+        type: 3}
+      propertyPath: JumpHeght
+      value: 1125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817543833278557011, guid: db1e598bccf235542abf6e2c7d527571,
+        type: 3}
+      propertyPath: FallGravity
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8817543833278557015, guid: db1e598bccf235542abf6e2c7d527571,
@@ -7390,7 +7400,17 @@ PrefabInstance:
     - target: {fileID: 8817543833278557011, guid: db1e598bccf235542abf6e2c7d527571,
         type: 3}
       propertyPath: Drag
-      value: 0.75
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817543833278557011, guid: db1e598bccf235542abf6e2c7d527571,
+        type: 3}
+      propertyPath: speed
+      value: 8.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817543833278557011, guid: db1e598bccf235542abf6e2c7d527571,
+        type: 3}
+      propertyPath: JumpHeght
+      value: 1125
       objectReference: {fileID: 0}
     - target: {fileID: 8817543833278557015, guid: db1e598bccf235542abf6e2c7d527571,
         type: 3}
