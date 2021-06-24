@@ -11,6 +11,26 @@ public class GP_MovingPlatform : GP_GimmickBase
     private Vector2 Center;
 
 
+
+    [Header("足場開始点")]
+    public Transform pos1;
+    [Header("足場終点")]
+    public Transform pos2;
+    [Header("足場パス生成")]
+    public bool GeneratePath;
+
+    private Vector2 Startpos;
+
+    private Vector2 Endpos;
+
+    [Header("足場速度")]
+    public float rate;
+    [Header("足場移動パーセント")]
+    [Range(0, 1)]
+    public float lerp = 0;
+
+    public Transform T;
+
     void Start()
     {
 
@@ -46,18 +66,17 @@ public class GP_MovingPlatform : GP_GimmickBase
         completed = false;
     }
 
-    public bool test;
 
     // Update is called once per frame
     void Update()
     {
 
         T.position = Vector2.Lerp(Startpos, Endpos, lerp);
-        if (test)
+        if (GeneratePath)
         {
             T.position = Vector2.Lerp(Startpos, Endpos, 0);
             lerp = 0;
-            test = false;
+            GeneratePath = false;
             Startpos = pos1.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition - PlatformCenter.transform.localPosition);
 
             Endpos = pos2.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition - PlatformCenter.transform.localPosition);
@@ -67,19 +86,6 @@ public class GP_MovingPlatform : GP_GimmickBase
     }
 
 
-    public Transform pos1;
-    public Transform pos2;
-
-
-    public Vector2 Startpos;
-
-    public Vector2 Endpos;
-
-    public float rate;
-    [Range(0, 1)]
-    public float lerp = 0;
-
-    public Transform T;
     public override void Event(bool state, PC_Base User)
     {
         if (state && lerp < 1.0f)

@@ -23,6 +23,9 @@ public class PC_Inst_Control : MonoBehaviour
     /// </summary>
     public PC_Inst_Timeline.Input_Event_st NextInput;
     /// <summary>
+
+    private PC_Inst_Timeline.Input_Event_st PrevInput;
+
     ///*現在時間
     /// </summary>
     private float LocalTimer;
@@ -41,6 +44,8 @@ public class PC_Inst_Control : MonoBehaviour
     /// *対応キャラクター
     /// </summary>
     private PC_Base ActorRef;
+
+
 
 
     void Start()
@@ -82,7 +87,7 @@ public class PC_Inst_Control : MonoBehaviour
         //*If NO EVENT FOUND
         if (NextInput.type == PC_Control.Input_st.NULL)
         {
-            NextInput = Timeline_Ref.GetZero();
+         //   NextInput = Timeline_Ref.GetZero();
         }
 
 
@@ -90,6 +95,7 @@ public class PC_Inst_Control : MonoBehaviour
         if (NextInput.start <= LocalTimer)
         {
             UpdateInputStates();
+
         }
 
 
@@ -101,8 +107,10 @@ public class PC_Inst_Control : MonoBehaviour
 
         if (NextInput.type != PC_Control.Input_st.Over)
         {
-            ActorRef.DispatchEvent(((int)NextInput.type));
-            //*次のイベントを探す
+            if (NextInput.type != PC_Control.Input_st.NULL)
+            {
+                ActorRef.DispatchEvent(((int)NextInput.type));
+            }
             NextInput = Timeline_Ref.FindNext(NextInput);
         }
     }
