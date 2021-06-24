@@ -53,6 +53,7 @@ public class Line : MonoBehaviour
 
     public void set()
     {
+        
         local=-1;
     }
 
