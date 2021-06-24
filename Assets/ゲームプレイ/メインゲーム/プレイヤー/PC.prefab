@@ -462,8 +462,8 @@ MonoBehaviour:
   cirref: {fileID: 5461543527153377368}
   controlled: 0
   velo: {x: 0, y: 0, z: 0}
-  Drag: 0
-  speed: 6
+  Drag: 0.05
+  speed: 10
   JumpHeght: 1000
   JumpGravity: 6
   FallGravity: 10
