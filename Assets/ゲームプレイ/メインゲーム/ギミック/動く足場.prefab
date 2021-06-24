@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 813882684704912698}
   m_Layer: 0
-  m_Name: PlatformCenter
+  m_Name: "\u8DB3\u5834\u4E2D\u5FC3\u70B9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,13 +268,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   completed: 0
   PlatformCenter: {fileID: 3776331660826030796}
-  test: 0
   pos1: {fileID: 3922943358815221288}
   pos2: {fileID: 5916672067887657195}
-  Startpos: {x: 0, y: 2}
-  Endpos: {x: 0, y: -6}
+  GeneratePath: 0
   rate: 0.015
-  lerp: 0
+  lerp: 1
   T: {fileID: 6065870741372971898}
 --- !u!1 &8166591583589727481
 GameObject:
@@ -304,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8166591583589727481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 813882684704912698}

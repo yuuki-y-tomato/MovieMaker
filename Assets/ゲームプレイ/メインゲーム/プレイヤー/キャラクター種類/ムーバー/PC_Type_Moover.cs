@@ -38,6 +38,7 @@ public class PC_Type_Moover : PC_Base
     {
         ResetInput();
         rb.velocity = new Vector2();
+        velo=new Vector3();
     }
     void OnEnable()
     {

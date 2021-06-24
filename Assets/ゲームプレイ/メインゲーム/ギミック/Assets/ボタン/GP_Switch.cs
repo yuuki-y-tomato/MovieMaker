@@ -19,11 +19,11 @@ public class GP_Switch : GP_Usable
     public List<LineRenderer> lines;
     public bool Showline;
 
-    [Header("線")]
-    public float speed;
+    [Header("線アニメーション速度")]
     public float linemul = 1;
+    [Header("線太さ")]
     public float LineSize = 0.5f;
-    [Header("線ターゲット")]
+    [Header("使用対象")]
     public List<GP_MovingPlatform> Targets;
 
 

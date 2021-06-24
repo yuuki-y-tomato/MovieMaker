@@ -58,7 +58,7 @@ public class GR_EffectContainer : MonoBehaviour
     IEnumerator selfterminate()
     {
         yield return new WaitForSeconds(duration);
-        Debug.Log("Removed");
+      //  Debug.Log("Removed");
         ParticleList.Remove(this);
         Destroy(this.gameObject);
     }

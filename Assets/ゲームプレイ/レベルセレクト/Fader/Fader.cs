@@ -17,8 +17,8 @@ public class Fader : MonoBehaviour
 
     void Start()
     {
-        reference=FindObjectOfType<Fader>();
-        mat=GetComponent<SpriteRenderer>().material;
+        reference = FindObjectOfType<Fader>();
+        mat = GetComponent<SpriteRenderer>().material;
         cam = FindObjectOfType<Camera>();
         transform.position = cam.transform.position + new Vector3(0, 0, 0.1f);
 
@@ -30,7 +30,6 @@ public class Fader : MonoBehaviour
         Cor = Toggle();
         reference.startco();
     }
-
     public void startco()
     {
         if (!running)
@@ -44,13 +43,9 @@ public class Fader : MonoBehaviour
     void Update()
     {
         transform.position = cam.transform.position + new Vector3(0, 0, 1);
-        if(st)
-        {
-            Fader.StartFade();
-            st=false;
-        }
+        if (st)
+        { Fader.StartFade(); st = false; }
     }
-
 
     static IEnumerator Toggle()
     {
@@ -66,7 +61,7 @@ public class Fader : MonoBehaviour
                 reference.mat.SetFloat("_Slider", deg);
                 yield return null;
             }
-        closed = true;
+            closed = true;
 
         }
         else
@@ -79,7 +74,7 @@ public class Fader : MonoBehaviour
                 reference.mat.SetFloat("_Slider", deg);
                 yield return null;
             }
-        closed = false;
+            closed = false;
 
         }
         running = false;

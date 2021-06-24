@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GP_Goal_Use : GP_Usable
 {
-    GP_Cammaker Goal;
+    GP_Goal Goal;
     void Start()
     {
-        Goal = FindObjectOfType<GP_Cammaker>();
+        Goal = FindObjectOfType<GP_Goal>();
     }
     void Update()
     {
