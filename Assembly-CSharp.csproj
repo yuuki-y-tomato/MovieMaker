@@ -39,7 +39,8 @@
      <Compile Include="Assets\ゲームプレイ\メインゲーム\カメラ\CAM_Gameplay.cs" />
      <Compile Include="Assets\ゲームプレイ\レベルセレクト\LevelInfo.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\コリジョン\scri.cs" />
-     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Cammaker.cs" />
+     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Goal.cs" />
+     <Compile Include="Assets\Line.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Goal_Use.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\コリジョン\PC_Colchecker.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ボタン\GP_GimmickBase.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ボタン\GP_Switch.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\カチンコ\Clapper.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\キャラクター種類\ムーバー\UT_FpsLimit.cs" />
+     <Compile Include="Assets\ゲームプレイ\メインゲーム\カメラ\CAM_Overlay.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\動く足場\GP_MovingPlatform.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\カチンコ\Cam_Text.cs" />
      <Compile Include="Assets\グラフィック\パーティクル\GR_EffectContainer.cs" />
@@ -75,7 +77,6 @@
      <Compile Include="Assets\ゲームプレイ\メインゲーム\Util\UT_r.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\マネージャー\TL_TimeLineMng.cs" />
      <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\針\GP_DeathBox.cs" />
-     <Compile Include="Assets\シーン\test.cs" />
      <None Include="Assets\プラグイン\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\プラグイン\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\グラフィック\レベルセレクト\Material\Strip.shader" />

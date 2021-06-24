@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GP_Cammaker : GP_GimmickBase
+public class GP_Goal : GP_GimmickBase
 {
 
-    public Cam_EffectSet CamItem;
+    // public Cam_EffectSet CamItem;
 
-    bool running = false;
-    public bool isGoal;    
 
     public override void Event(bool state, PC_Base User)
     {
@@ -21,19 +19,16 @@ public class GP_Cammaker : GP_GimmickBase
 
             if (User == PC_Control.TargetTL.GetComponent<PC_Base>())
             {
-                if (!running&&isGoal)
-                {
-                    TL_TimeLineMng.mult = 1;
-                    TL_TimeLineMng.ResetTimer();
 
-                    FindObjectOfType<MG_StateManager>().AdvanceScene();
+                TL_TimeLineMng.mult = 1;
+                TL_TimeLineMng.ResetTimer();
 
-                    //            StartCoroutine("End");
-                }
+                FindObjectOfType<MG_StateManager>().AdvanceScene();
+
             }
             else
             {
-                CamItem.Create(this.transform.position,User);
+                //   CamItem.Create(this.transform.position,User);
             }
         }
     }
