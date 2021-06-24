@@ -30,9 +30,7 @@ public class TL_TimeLineMng : MonoBehaviour
     /// </summary>
     public float max;
     /// <summary>
-    /// タイムリミット外部アクセス用
-    /// </summary>
-    public static float Max_acc;
+
 
     /// <summary>
     /// リセット時少しの間ゲームが動かないようにする
@@ -47,6 +45,13 @@ public class TL_TimeLineMng : MonoBehaviour
 
     public static Action OnReset;
 
+    private static TL_TimeLineMng self;
+
+    void Start()
+    {
+        self=FindObjectOfType<TL_TimeLineMng>();
+    }
+
     void Update()
     {
 
@@ -56,14 +61,12 @@ public class TL_TimeLineMng : MonoBehaviour
             ctime = 0;
             tst = 0;
         }
-        Max_acc = max;
-
-
+     
         if (tst > 1)
         {
 
             delta = Time.deltaTime * mult;
-            if (ctime < Max_acc)
+            if (ctime < max)
             {
                 if (running)
                 {
@@ -95,10 +98,9 @@ public class TL_TimeLineMng : MonoBehaviour
         reset = true;
         OnReset?.Invoke();
     }
-    /*
-        private void OnGUI()
-        {
-            GUI.Box(new Rect(Screen.width / 2, 10, 400, 20), ctime.ToString("F6"));
-        }
-    */
+    public static float GetTimelim()
+    {
+        return self.max;
+    }
+
 }

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6705239524101228528}
-  - component: {fileID: 5165491424129658630}
   - component: {fileID: 2873349023620114471}
   - component: {fileID: 4181829525571409887}
+  - component: {fileID: 225478388061085638}
   m_Layer: 7
   m_Name: Goal
   m_TagString: Usable
@@ -34,21 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5165491424129658630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315832268636102446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b928c95c9abf044281deb81e0adb604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  completed: 0
-  CamItem: {fileID: 0}
-  isGoal: 0
 --- !u!61 &2873349023620114471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90,6 +75,20 @@ MonoBehaviour:
   isactive: 0
   Target: {fileID: 0}
   LastUser: {fileID: 0}
+--- !u!114 &225478388061085638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315832268636102446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b928c95c9abf044281deb81e0adb604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completed: 0
+  isGoal: 1
 --- !u!1 &2001792107183180510
 GameObject:
   m_ObjectHideFlags: 0

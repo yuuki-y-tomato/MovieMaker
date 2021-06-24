@@ -39,9 +39,9 @@
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Editor\PropertyDrawers\InputControlPathDrawer.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Utilities\NumberHelpers.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Utilities\OneOrMore.cs" />
+     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\UI\BaseInputOverride.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\PlayerInput\PlayerInput.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Controls\DoubleControl.cs" />
-     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\UI\BaseInputOverride.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\UI\NavigationModel.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Devices\Keyboard.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Devices\Haptics\IDualMotorRumble.cs" />
@@ -274,8 +274,8 @@
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Actions\InputActionPhase.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Devices\Pen.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\State\InputStateBlock.cs" />
-     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Devices\Commands\WarpMousePositionCommand.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Events\InputEventBuffer.cs" />
+     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Devices\Commands\WarpMousePositionCommand.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Editor\ControlPicker\InputControlPickerState.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Events\InputEventTrace.cs" />
      <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Devices\Commands\QueryDimensionsCommand.cs" />

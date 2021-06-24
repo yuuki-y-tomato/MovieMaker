@@ -57,7 +57,6 @@ public class GP_Switch_Editor : Editor
     void DisplayObjects()
     {
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("linemul"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("LineSize"));
 
