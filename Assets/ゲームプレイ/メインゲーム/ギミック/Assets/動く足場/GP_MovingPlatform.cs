@@ -34,7 +34,7 @@ public class GP_MovingPlatform : GP_GimmickBase
     void Start()
     {
 
-        Debug.Log(pos1.transform.position + "P1");
+//        Debug.Log(pos1.transform.position + "P1");
         Startpos = pos1.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition - PlatformCenter.transform.localPosition);
 
         Endpos = pos2.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition - PlatformCenter.transform.localPosition);
@@ -102,14 +102,6 @@ public class GP_MovingPlatform : GP_GimmickBase
     }
 
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        other.gameObject.transform.SetParent(this.transform, true);
-    }
 
-    void OnCollisionExit2D(Collision2D other)
-    {
-        other.gameObject.transform.parent = null;
-    }
 
 }
