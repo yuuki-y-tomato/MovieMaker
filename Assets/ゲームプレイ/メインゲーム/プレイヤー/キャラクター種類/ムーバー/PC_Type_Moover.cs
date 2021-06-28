@@ -56,7 +56,7 @@ public class PC_Type_Moover : PC_Base
 
         move();
 
-
+        CheckSquish();
 
 
         if (Input.GetKey(KeyCode.R))
@@ -157,6 +157,18 @@ public class PC_Type_Moover : PC_Base
     #endregion
 
     #endregion
+
+    #region Squish
+    void CheckSquish()
+    {
+        if((cirref.SR&&cirref.SL)||(cirref.SB&&cirref   .ST))
+        {
+                MG_StateManager Ref = FindObjectOfType<MG_StateManager>();
+            Ref.RestartScene();   
+        }
+    }
+    #endregion
+
 
     //INTERACTION FUNCTIONS
     #region Use
