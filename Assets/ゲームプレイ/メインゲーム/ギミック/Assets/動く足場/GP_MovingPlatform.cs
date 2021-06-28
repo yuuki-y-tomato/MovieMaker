@@ -74,12 +74,19 @@ public class GP_MovingPlatform : GP_GimmickBase
         T.position = Vector2.Lerp(Startpos, Endpos, lerp);
         if (GeneratePath)
         {
+            Vector3 buf1,buf2;
+            buf1=pos1.transform.position;
+            buf2=pos2.transform.position;
+            Startpos = pos1.transform.position-PlatformCenter.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition - PlatformCenter.transform.localPosition);
+
+            Endpos = pos2.transform.position-PlatformCenter.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition - PlatformCenter.transform.localPosition);
+              
             T.position = Vector2.Lerp(Startpos, Endpos, 0);
             lerp = 0;
             GeneratePath = false;
-            Startpos = pos1.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition - PlatformCenter.transform.localPosition);
+          pos1.transform.position=buf1;
+            pos2.transform.position=buf2;
 
-            Endpos = pos2.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition - PlatformCenter.transform.localPosition);
 
         }
 
