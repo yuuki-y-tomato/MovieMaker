@@ -71,6 +71,7 @@
     <Compile Include="Assets\ゲームプレイ\メインゲーム\カメラ\CAM_Replay.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\マネージャー\MG_StateManager.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\キャラクター種類\ムーバー\PC_Type_Moover.cs" />
+    <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\入力管理\PC_Inst_SE.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\入力管理\PC_Inst_Timeline.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\カメラ\CAM_Overlay.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\マネージャー\UT_InputFilter.cs" />
@@ -101,7 +102,7 @@
     <Compile Include="Assets\ゲームプレイ\メインゲーム\マネージャー\TL_TimeLineMng.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\針\GP_DeathBox.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Goal.cs" />
-    <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\入力管理\PC_Inst_SE.cs" />
+    <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\PC_Animation_SE.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\プラグイン\TextMesh Pro\Shaders\TMPro.cginc" />
