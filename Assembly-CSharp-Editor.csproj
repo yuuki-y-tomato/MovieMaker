@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\キャラクター種類\ムーバー\Editor\PC_Mover_Editor.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ボタン\Editor\GP_Switch_Editor.cs" />
+    <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\機銃\Editor\Turret_Control_Editor.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\カチンコ\Editor\Clapper_Editor.cs" />
   </ItemGroup>
   <ItemGroup>

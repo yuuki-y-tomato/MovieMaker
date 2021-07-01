@@ -63,7 +63,7 @@
     <Compile Include="Assets\ゲームプレイ\メインゲーム\カメラ\CAM_Gameplay.cs" />
     <Compile Include="Assets\ゲームプレイ\レベルセレクト\LevelInfo.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\コリジョン\scri.cs" />
-    <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Cammaker.cs" />
+    <Compile Include="Assets\Line.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Goal_Use.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\コリジョン\PC_Colchecker.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ボタン\GP_GimmickBase.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="Assets\ゲームプレイ\メインゲーム\マネージャー\MG_StateManager.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\キャラクター種類\ムーバー\PC_Type_Moover.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\入力管理\PC_Inst_Timeline.cs" />
-    <Compile Include="Assets\シーン\test.cs" />
+    <Compile Include="Assets\ゲームプレイ\メインゲーム\カメラ\CAM_Overlay.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\マネージャー\UT_InputFilter.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\機銃\Turret_Control.cs" />
     <Compile Include="Assets\ゲームプレイ\レベルセレクト\Wheel.cs" />
@@ -100,6 +100,8 @@
     <Compile Include="Assets\ゲームプレイ\メインゲーム\Util\UT_r.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\マネージャー\TL_TimeLineMng.cs" />
     <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\針\GP_DeathBox.cs" />
+    <Compile Include="Assets\ゲームプレイ\メインゲーム\ギミック\Assets\ゴール\GP_Goal.cs" />
+    <Compile Include="Assets\ゲームプレイ\メインゲーム\プレイヤー\入力管理\PC_Inst_SE.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\プラグイン\TextMesh Pro\Shaders\TMPro.cginc" />
