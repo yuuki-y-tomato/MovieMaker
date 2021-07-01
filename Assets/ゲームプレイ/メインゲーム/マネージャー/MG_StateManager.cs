@@ -11,6 +11,7 @@ public class MG_StateManager : MonoBehaviour
     {
         Ready, Retry, Gameplay, Replay
     }
+    Clapper a;
     public List<PC_Base> CharacterOrder;
     public int CurrentActor = 0;
     public static States state;
@@ -98,9 +99,8 @@ public class MG_StateManager : MonoBehaviour
             {
                 b.ResetInput();
                 b.completed = false;
-
             }
-            //    Debug.Log("sdhfaowssgfowag");
+                    
             FindObjectOfType<Camera>().GetComponent<CAM_Gameplay>().isactive = false;
             FindObjectOfType<Camera>().GetComponent<CAM_Replay>().isactive = true;
             TL_TimeLineMng.ResetTimer();
@@ -137,5 +137,5 @@ public class MG_StateManager : MonoBehaviour
     }
 
 
-   
+
 }
