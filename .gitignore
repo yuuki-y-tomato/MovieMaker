@@ -1,6 +1,5 @@
 /Library
 /Logs
 /Temp
-obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
-.vs/MovieMaker/v15/Server/sqlite3/storage.ide
-.vs/MovieMaker/v15/.suo
+*.csproj
+*.sln
