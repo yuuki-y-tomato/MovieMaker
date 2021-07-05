@@ -7,19 +7,27 @@ public class Wheel : MonoBehaviour
 {
     Animator ac;
     Transform T;
+    AudioSource AS;
+
     
     void Start()
     {
         T = GetComponent<Transform>();
         ac = GetComponent<Animator>();
+
+        AS = GetComponent<AudioSource>();
         StartCoroutine("WheelAnimation");
     }
     public int selection = 0;
     public int levelcount = 3;
 
     public bool ended;
+
+    public AudioClip audio;
     void Update()
     {
+        //AS.Play("Assets/)
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             ac.SetBool("State", true);
@@ -30,11 +38,16 @@ public class Wheel : MonoBehaviour
         {
 
             selection = Math.Min(selection + 1, levelcount);
+            AS.clip = audio;
+            AS.Play();
+            //= ("èeâŒäÌÅEåÇìSè„Ç∞ÇÈ.mp3");
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
 
             selection = Math.Max(selection - 1, 0);
+            AS.clip = audio;
+            AS.Play();
         }
         if (ended)
         {
@@ -48,7 +61,13 @@ public class Wheel : MonoBehaviour
 
     public bool set;
 
-    IEnumerable WheelAnimation()
+   
+    
+
+    
+
+    //IEnumerable WheelAnimation()
+    IEnumerator WheelAnimation()
     {
 
         while (true)
