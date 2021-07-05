@@ -101,7 +101,7 @@ public class Clapper : MonoBehaviour
     public float rotrate;
     public float rotmax;
     public float smooth;
-    private float rot;
+    public float rot;
 
     [Header("Position")]
 
