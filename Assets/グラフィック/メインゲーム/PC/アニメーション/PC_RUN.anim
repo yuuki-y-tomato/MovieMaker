@@ -3861,7 +3861,8 @@ AnimationClip:
   - time: 0
     functionName: WalkSE
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: af409ac06473e5b47aace37a8dce52e6,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
