@@ -3,3 +3,7 @@
 /Temp
 *.csproj
 *.sln
+.vs/MovieMaker/v15/.suo
+*.suo
+*.ide
+*.lock
