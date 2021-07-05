@@ -88,7 +88,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completed: 0
-  isGoal: 1
 --- !u!1 &2001792107183180510
 GameObject:
   m_ObjectHideFlags: 0
