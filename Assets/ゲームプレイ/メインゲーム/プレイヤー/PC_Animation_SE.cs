@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PC_Animation_SE : MonoBehaviour
+{
+    //Ç†ÇÈÇ≠å¯â âπ
+    public AudioClip sound_Walk;
+    //ÇÕÇÀÇÈå¯â âπ
+   // public AudioClip sound_Jump;
+    AudioSource audioSource;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //Ç±ÇÒÇ€Å[ÇÀÇÒÇ∆ÇéÊìæ
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void WalkSE()
+    {
+        audioSource.PlayOneShot(sound_Walk);
+    }
+}
