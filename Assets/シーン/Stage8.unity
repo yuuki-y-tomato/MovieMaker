@@ -5422,7 +5422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterOrder:
-  - {fileID: 1920575746}
+  - {fileID: 1086498032}
   - {fileID: 1920575746}
   CurrentActor: 0
   fademat: {fileID: 2100000, guid: 102be5203baa7ac448f86e5fa878c5e9, type: 2}
@@ -5478,6 +5478,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1136090314}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1086498032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8817543833278557011, guid: db1e598bccf235542abf6e2c7d527571,
+    type: 3}
+  m_PrefabInstance: {fileID: 1136090314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086498028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb001219ef06beb429a78d95d0e6d079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1086498034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5634,12 +5646,12 @@ PrefabInstance:
     - target: {fileID: 8817543833278557010, guid: db1e598bccf235542abf6e2c7d527571,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8817543833278557010, guid: db1e598bccf235542abf6e2c7d527571,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.1
+      value: 6.13
       objectReference: {fileID: 0}
     - target: {fileID: 8817543833278557010, guid: db1e598bccf235542abf6e2c7d527571,
         type: 3}
@@ -11457,7 +11469,7 @@ PrefabInstance:
     - target: {fileID: 8817543833278557010, guid: db1e598bccf235542abf6e2c7d527571,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.9
+      value: -6.62
       objectReference: {fileID: 0}
     - target: {fileID: 8817543833278557010, guid: db1e598bccf235542abf6e2c7d527571,
         type: 3}
@@ -14594,6 +14606,16 @@ PrefabInstance:
       propertyPath: GeneratePath
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1156898775676146255, guid: da216f7aede314348a5610636958c740,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156898775676146255, guid: da216f7aede314348a5610636958c740,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 1207607465544410621, guid: da216f7aede314348a5610636958c740,
         type: 3}
       propertyPath: m_Size.x
@@ -15531,12 +15553,32 @@ PrefabInstance:
     - target: {fileID: 4319501151095665723, guid: 3dcc43d0a33eb4243949c3f6f78a6819,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4319501151095665723, guid: 3dcc43d0a33eb4243949c3f6f78a6819,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319501151095665723, guid: 3dcc43d0a33eb4243949c3f6f78a6819,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102848138748198266, guid: 3dcc43d0a33eb4243949c3f6f78a6819,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4738893
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102848138748198266, guid: 3dcc43d0a33eb4243949c3f6f78a6819,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.026110705
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102848138748198266, guid: 3dcc43d0a33eb4243949c3f6f78a6819,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0000000031126384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dcc43d0a33eb4243949c3f6f78a6819, type: 3}
@@ -15562,6 +15604,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1906521904}
   - component: {fileID: 1906521903}
+  - component: {fileID: 1906521905}
+  - component: {fileID: 1906521906}
   m_Layer: 0
   m_Name: ==Managers==
   m_TagString: Untagged
@@ -15600,6 +15644,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1906521905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906521902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c3a390761fc9244ba90ca8ff74e8b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1906521906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906521902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 32afb3da01e5b54a986d9a2d4171933c,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1906521905}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e6ea2b3c-2e7e-4b43-8158-b2f9b2f8d87c
+    m_ActionName: ActionMap/MainAction[/Keyboard/m]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: ActionMap
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &1920575742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8817543833278557010, guid: db1e598bccf235542abf6e2c7d527571,

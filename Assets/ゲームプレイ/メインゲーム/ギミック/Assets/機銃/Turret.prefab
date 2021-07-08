@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -67
   m_Sprite: {fileID: 199249360466117110, guid: b8559b702513a9f489b5ca23deea0c26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -55
   m_Sprite: {fileID: 199249360466117110, guid: b8559b702513a9f489b5ca23deea0c26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -235,7 +235,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -86
   m_Sprite: {fileID: 21300000, guid: bd68ba203fbd5604b8c7bde4e43259b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -310,9 +310,10 @@ GameObject:
   - component: {fileID: 4038934777640522627}
   - component: {fileID: 3611502304633674759}
   - component: {fileID: 2423204932344139679}
+  - component: {fileID: 2416394795311819262}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,8 +348,8 @@ MonoBehaviour:
   DownTime: 0
   Speed: 4
   dir: 1
-  Base: {fileID: 2100000, guid: 01351ad5a2ea34c439f66727c9748ef0, type: 2}
   Meter: {fileID: 3882546174399773071}
+  Base: {fileID: 2100000, guid: 01351ad5a2ea34c439f66727c9748ef0, type: 2}
   ac: {fileID: 1730433193574035626}
 --- !u!114 &2423204932344139679
 MonoBehaviour:
@@ -362,3 +363,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9a9c0b229f4a34e85aa0af7067ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &2416394795311819262
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8570603869321042938}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.070880175, y: 0.00000047683716}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.9615436, y: 5.4653854}
+  m_EdgeRadius: 0

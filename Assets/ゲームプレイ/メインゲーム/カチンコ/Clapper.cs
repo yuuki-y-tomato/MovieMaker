@@ -133,7 +133,7 @@ public class Clapper : MonoBehaviour
         }
         if (rot < 0.05f && set && MG_StateManager.state == MG_StateManager.States.Ready)
         {
-            Debug.Log("cir");
+          //  Debug.Log("cir");
             set = false;
             FindObjectOfType<CAM_Gameplay>().Ready_to_GP();
             TL_TimeLineMng.run(true);
@@ -238,7 +238,7 @@ public class Clapper : MonoBehaviour
                 v.localPosition = new Vector3(buf.x, buf.y, value);
                 break;
         }
-        Debug.Log(v.position.ToString());
+//        Debug.Log(v.position.ToString());
 
 
     }

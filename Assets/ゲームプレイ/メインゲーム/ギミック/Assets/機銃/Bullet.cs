@@ -83,8 +83,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
-
+        Debug.Log("Collided");
     if (other.gameObject.tag == "TileMap" || other.gameObject.tag == "PCs")
         {
             GR_EffectContainer.Create(Effect,transform);
@@ -92,5 +91,8 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+ 
+    
 
 }

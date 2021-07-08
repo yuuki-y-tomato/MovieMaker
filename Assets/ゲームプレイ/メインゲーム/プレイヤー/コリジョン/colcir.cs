@@ -13,12 +13,12 @@ public class colcir : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        state=other.gameObject.tag=="TileMap";
+        state=other.gameObject.tag=="TileMap"||other.gameObject.tag=="Turret";
 
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.tag=="TileMap")
+        if(other.gameObject.tag=="TileMap"||other.gameObject.tag=="Turret")
         {
         state=false;
     }}

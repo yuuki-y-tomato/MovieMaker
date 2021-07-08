@@ -108,6 +108,14 @@ public class GP_MovingPlatform : GP_GimmickBase
 
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color=Color.blue;
+        Gizmos.DrawLine(Startpos,Endpos);
+        Gizmos.DrawIcon(Startpos,"POS1",true);
+        Gizmos.DrawIcon(Endpos,"POS2",true);
+
+    }
 
 
 

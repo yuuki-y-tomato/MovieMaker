@@ -200,6 +200,7 @@ public class PC_Type_Moover : PC_Base
 
         if (other.gameObject.tag == "Death")
         {
+            Debug.Log(other.gameObject.name);
             MG_StateManager Ref = FindObjectOfType<MG_StateManager>();
             Ref.RestartScene();
         }

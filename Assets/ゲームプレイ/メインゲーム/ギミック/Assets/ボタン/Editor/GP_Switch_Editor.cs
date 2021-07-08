@@ -50,6 +50,7 @@ public class GP_Switch_Editor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("active_sp"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("LineBase"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("lines"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("Showline"));
 
 
     }

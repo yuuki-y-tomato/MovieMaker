@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// インプット管理
@@ -9,6 +10,7 @@ public class UT_InputFilter : MonoBehaviour
 {
 
     public static float Axis;
+  
 
     //*左スティック横軸入力を返す
     public static float GetHor()

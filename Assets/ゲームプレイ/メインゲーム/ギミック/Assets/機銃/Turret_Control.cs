@@ -42,14 +42,17 @@ public class Turret_Control : MonoBehaviour
     void ResetEvent()
     {
         prevtimer=0;
+        timer=0;
         Bullet.reset();
     }
     float prevtimer;
     void Update()
     {
-        timer=TL_TimeLineMng.ctime-prevtimer;
-        
-
+        if(prevtimer>TL_TimeLineMng.ctime)
+        {
+            prevtimer=TL_TimeLineMng.ctime;
+        }
+        timer=Mathf.Max(TL_TimeLineMng.ctime-prevtimer,0);
         if (timer > DownTime)
         {
             generate();
@@ -66,6 +69,10 @@ public class Turret_Control : MonoBehaviour
     void generate()
     {
         Bullet.Create(dir, this.transform.position, Speed);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Debug.Log(timer);
     }
 
 }

@@ -37,7 +37,7 @@ public class GP_Switch : GP_Usable
 
 
 
-        if (Showline)
+        if (true)
         {
             for (int i = 0; i < Targets.Count; i++)
             {
