@@ -3,3 +3,10 @@
 /Temp
 *.csproj
 *.sln
+.vs/MovieMaker/v15/.suo
+*.suo
+*.ide
+*.lock
+obj/Debug/Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
+
+*.cache
