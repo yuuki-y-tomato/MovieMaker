@@ -10,6 +10,7 @@ TagManager:
   - LevelBoundary
   - Usable
   - Death
+  - Turret
   layers:
   - Default
   - TransparentFX

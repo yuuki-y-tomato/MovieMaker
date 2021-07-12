@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 7500531826435715153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 6144521624323571889}
   - {fileID: 7952458598186793207}
@@ -192,11 +192,11 @@ MonoBehaviour:
   inactive_sp: {fileID: 21300000, guid: 88ddabd9ca3a76e469a18eef630082b0, type: 3}
   active_sp: {fileID: 21300000, guid: 15fe3c5442266c24a95f8671201e7598, type: 3}
   sprite: {fileID: 8402803573417612556}
-  Base: {fileID: 5630304018988600686}
+  LineBase: {fileID: 5630304018988600686}
   lines: []
   Showline: 0
-  speed: 0
   linemul: 1
+  LineSize: 0.5
   Targets: []
 --- !u!1 &8180587151986439074
 GameObject:

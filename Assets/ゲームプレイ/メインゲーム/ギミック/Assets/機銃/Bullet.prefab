@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1386001570957522085}
   - component: {fileID: 376640996972678506}
-  - component: {fileID: 5626979152543662253}
-  - component: {fileID: 3917411576071671683}
+  - component: {fileID: 5102848138748198266}
+  - component: {fileID: 3027298950136100987}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -47,11 +47,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26f886f58550d546a27a2a2357b3644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effect: {fileID: 0}
   mat: {fileID: 2100000, guid: a40bd917a2749124fa1c2b28c7f048a5, type: 2}
+  Effect: {fileID: 0}
   Direction: 0
   speed: 1
---- !u!50 &5626979152543662253
+--- !u!58 &5102848138748198266
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584738310875688456}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!50 &3027298950136100987
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -71,23 +87,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!58 &3917411576071671683
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584738310875688456}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.005300641, y: -0.026503026}
-  serializedVersion: 2
-  m_Radius: 0.5530061
+  m_Constraints: 0
 --- !u!1 &5314123423090892927
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4204124665533997495}
   m_Layer: 0
   m_Name: Particle
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4904,7 +4904,7 @@ GameObject:
   - component: {fileID: 5282188128836825583}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

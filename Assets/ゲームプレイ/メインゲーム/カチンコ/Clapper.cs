@@ -12,6 +12,9 @@ public class Clapper : MonoBehaviour
     public Transform ReadyParent;
     public Transform GPParent;
 
+    public Transform ReplayParent;
+
+
     private MG_StateManager stateManagerref;
 
     Transform Top_T;
@@ -34,6 +37,16 @@ public class Clapper : MonoBehaviour
         SetContents(prevstate);
     }
 
+    private void OnEnable()
+    {
+        FindObjectOfType<MG_StateManager>().OnReplay += InitReplay;
+    }
+    private void OnDisable()
+    {
+        FindObjectOfType<MG_StateManager>().OnReplay -= InitReplay;
+
+    }
+
     MG_StateManager.States prevstate;
 
     void Update()
@@ -43,6 +56,8 @@ public class Clapper : MonoBehaviour
         {
             prevstate = MG_StateManager.state;
             SetContents(prevstate);
+
+
         }
 
 
@@ -55,6 +70,9 @@ public class Clapper : MonoBehaviour
             case MG_StateManager.States.Gameplay:
                 GamePlay();
                 break;
+            case MG_StateManager.States.Replay:
+                Replay();
+                break;
         }
         SliderMat.SetFloat("_Slider", TL_TimeLineMng.ctime / TL_TimeLineMng.GetTimelim());
 
@@ -64,7 +82,7 @@ public class Clapper : MonoBehaviour
     {
         Setv(ReadyParent, 10, 2);
         Setv(GPParent, 10, 2);
-
+        Setv(ReplayParent, 10, 2);
 
     }
 
@@ -80,6 +98,9 @@ public class Clapper : MonoBehaviour
                 break;
             case MG_StateManager.States.Gameplay:
                 Setv(GPParent, 0, 2);
+                break;
+            case MG_StateManager.States.Replay:
+                Setv(ReplayParent, 0, 2);
                 break;
         }
     }
@@ -113,8 +134,8 @@ public class Clapper : MonoBehaviour
     void Ready()
     {
 
-        TakeCount.text = "Take " + (stateManagerref.Takes + 1).ToString();
-        SceneCount.text = "Scene " + stateManagerref.Actors + "/" + (stateManagerref.CurrentActor + 1).ToString();
+        TakeCount.text = "テイク " + (stateManagerref.Takes + 1).ToString();
+        SceneCount.text = "シーン " + stateManagerref.Actors + "/" + (stateManagerref.CurrentActor + 1).ToString();
 
         if (Input.GetKey(KeyCode.P))
         {
@@ -133,7 +154,7 @@ public class Clapper : MonoBehaviour
         }
         if (rot < 0.05f && set && MG_StateManager.state == MG_StateManager.States.Ready)
         {
-            Debug.Log("cir");
+            //  Debug.Log("cir");
             set = false;
             FindObjectOfType<CAM_Gameplay>().Ready_to_GP();
             TL_TimeLineMng.run(true);
@@ -169,7 +190,7 @@ public class Clapper : MonoBehaviour
     private Material Slidermatinst;
     public float SliderRate = 1.0f;
     #endregion
-    
+
     void GamePlay()
     {
         GP_UpdateSlider();
@@ -186,6 +207,32 @@ public class Clapper : MonoBehaviour
 
     #endregion
 
+
+    #region  Replay
+
+
+
+    void InitReplay()
+    {
+        foreach (var b in GetComponentsInChildren<SpriteRenderer>())
+        {
+            b.enabled = false;
+        }
+        foreach (var b in GetComponentsInChildren<MeshRenderer>())
+        {
+            b.enabled = false;
+        }
+
+
+    }
+
+    void Replay()
+    {
+
+
+    }
+
+    #endregion
     #endregion
 
 
@@ -207,7 +254,7 @@ public class Clapper : MonoBehaviour
 
         float buf;
         buf = Math.Max(smooth - Math.Abs(val - lim), 0) / smooth;
-
+        
         return Math.Min(val, lim) - buf * buf * smooth * 0.25f;
 
 
@@ -238,7 +285,7 @@ public class Clapper : MonoBehaviour
                 v.localPosition = new Vector3(buf.x, buf.y, value);
                 break;
         }
-        Debug.Log(v.position.ToString());
+        //        Debug.Log(v.position.ToString());
 
 
     }

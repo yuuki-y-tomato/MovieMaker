@@ -47,6 +47,10 @@ public    float EffectMult;
     void Update()
     {
         if(isactive){
+            if(TL_TimeLineMng.ctime==0)
+            {
+                TL_TimeLineMng.run(true);
+            }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             foreach (var b in CharList)

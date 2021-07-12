@@ -77,11 +77,15 @@ public class GP_MovingPlatform : GP_GimmickBase
             Vector3 buf1,buf2;
             buf1=pos1.transform.position;
             buf2=pos2.transform.position;
-            Startpos = pos1.transform.position-PlatformCenter.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition - PlatformCenter.transform.localPosition);
+            T.position=pos1.transform.position;
 
-            Endpos = pos2.transform.position-PlatformCenter.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition - PlatformCenter.transform.localPosition);
-              
             T.position = Vector2.Lerp(Startpos, Endpos, 0);
+
+            Startpos = pos1.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos1.transform.localPosition - PlatformCenter.transform.localPosition);
+
+            Endpos = pos2.transform.position;// T.localToWorldMatrix.MultiplyPoint(pos2.transform.localPosition - PlatformCenter.transform.localPosition);
+              
+            T.position = Vector2.Lerp(Startpos, Endpos, 0);//+asv2(PlatformCenter.transform.position);
             lerp = 0;
             GeneratePath = false;
           pos1.transform.position=buf1;
@@ -91,7 +95,10 @@ public class GP_MovingPlatform : GP_GimmickBase
         }
 
     }
-
+    Vector2 asv2(Vector3 a)
+    {
+        return new Vector2(a.x,a.y);
+    }
 
     public override void Event(bool state, PC_Base User)
     {
@@ -108,6 +115,14 @@ public class GP_MovingPlatform : GP_GimmickBase
 
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color=Color.blue;
+        Gizmos.DrawLine(Startpos,Endpos);
+        Gizmos.DrawIcon(Startpos,"POS1",true);
+        Gizmos.DrawIcon(Endpos,"POS2",true);
+
+    }
 
 
 

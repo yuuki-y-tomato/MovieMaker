@@ -12,9 +12,9 @@ Shader "Unlit/Turret_Meter"
     }
     SubShader
     {
-      Tags { "QUEUE"="Transparent" "IGNOREPROJECTOR"="true" "RenderType"="Transparent" "CanUseSpriteAtlas"="true" "PreviewType"="Plane" }
+      Tags { "QUEUE"="Transparent" "RenderType"="Transparent" "CanUseSpriteAtlas"="true" "PreviewType"="Plane" }
         LOD 100
-        Cull Off
+       // Cull Off
         Lighting Off
      
         Blend SrcAlpha OneMinusSrcAlpha
