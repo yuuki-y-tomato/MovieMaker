@@ -340,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 4038934777640522627, guid: f270389e1066f0543913a092de33549e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4038934777640522627, guid: f270389e1066f0543913a092de33549e,
         type: 3}
@@ -10632,7 +10632,7 @@ PrefabInstance:
     - target: {fileID: 4038934777640522627, guid: f270389e1066f0543913a092de33549e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4038934777640522627, guid: f270389e1066f0543913a092de33549e,
         type: 3}
@@ -10826,6 +10826,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 4181829525571409887, guid: 0d5f9615b81206941aa93d2c39a3363f,
+        type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 2018862637}
     - target: {fileID: 6705239524101228528, guid: 0d5f9615b81206941aa93d2c39a3363f,
         type: 3}
       propertyPath: m_RootOrder
@@ -11022,7 +11027,7 @@ PrefabInstance:
     - target: {fileID: 4038934777640522627, guid: f270389e1066f0543913a092de33549e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4038934777640522627, guid: f270389e1066f0543913a092de33549e,
         type: 3}
@@ -11101,6 +11106,18 @@ Transform:
   m_Father: {fileID: 1173845657}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2018862637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 225478388061085638, guid: 0d5f9615b81206941aa93d2c39a3363f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1824680600}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b928c95c9abf044281deb81e0adb604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2069281962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8817543833278557010, guid: db1e598bccf235542abf6e2c7d527571,

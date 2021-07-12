@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MG_StateManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -9,7 +9,7 @@ public class MG_StateManager : MonoBehaviour
     #region Variables
     public enum States
     {
-        Ready, Retry, Gameplay, Replay
+        Ready, Retry, Gameplay, Replay,end
     }
     Clapper a;
     public List<PC_Base> CharacterOrder;
@@ -95,16 +95,19 @@ public class MG_StateManager : MonoBehaviour
         }
         else//REPLAY
         {
+            if (FindObjectOfType<Camera>().GetComponent<CAM_Replay>().isactive == true)
+            {
+                StartCoroutine(ChangeState(States.end));
+            }
             foreach (var b in CharacterOrder)
             {
                 b.ResetInput();
                 b.completed = false;
             }
-                    
+
             FindObjectOfType<Camera>().GetComponent<CAM_Gameplay>().isactive = false;
             FindObjectOfType<Camera>().GetComponent<CAM_Replay>().isactive = true;
             TL_TimeLineMng.ResetTimer();
-
 
             StartCoroutine(ChangeState(States.Replay));
 
@@ -115,6 +118,7 @@ public class MG_StateManager : MonoBehaviour
 
     IEnumerator ChangeState(States tgt)
     {
+
         float k = 1;
         while (k > 0)
         {
@@ -124,8 +128,16 @@ public class MG_StateManager : MonoBehaviour
         }
         TL_TimeLineMng.ResetTimer();
         TL_TimeLineMng.run(false);
-        state = tgt;
         yield return new WaitForSeconds(0.5f);
+        if (tgt == States.end)
+        {
+            SceneManager.LoadScene("Selection");
+        }
+        if(tgt==States.Replay)
+        {
+        yield return new WaitForSeconds(1.0f);
+        }
+        state = tgt;
 
         while (k < 1)
         {

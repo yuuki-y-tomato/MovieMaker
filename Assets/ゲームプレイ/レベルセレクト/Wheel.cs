@@ -28,8 +28,7 @@ public class Wheel : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-
-            selection = Math.Min(selection + 1, levelcount);
+            selection = Math.Min(selection + 1, levelcount-1);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -48,7 +47,7 @@ public class Wheel : MonoBehaviour
 
     public bool set;
 
-    IEnumerable WheelAnimation()
+    IEnumerator WheelAnimation()
     {
 
         while (true)
