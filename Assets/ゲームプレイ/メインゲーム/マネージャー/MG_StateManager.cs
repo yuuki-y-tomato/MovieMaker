@@ -22,8 +22,9 @@ public class MG_StateManager : MonoBehaviour
     public int Takes;
     public int Actors;
 
+    public Action OnReplay;
 
-    void Start()
+    public void Start()
     {
 
         Takes = 0;
@@ -44,6 +45,10 @@ public class MG_StateManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             RestartScene();
+        }
+        if(state==States.Replay&&!fading)
+        {
+            TL_TimeLineMng.run(true);
         }
     }
 

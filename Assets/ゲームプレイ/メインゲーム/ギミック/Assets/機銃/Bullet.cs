@@ -29,7 +29,6 @@ public class Bullet : MonoBehaviour
     }
     static public void reset()
     {
-        Debug.Log("Reset");
         foreach (var b in isntances)
         {
             Destroy(b.gameObject);

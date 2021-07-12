@@ -10,7 +10,7 @@ public class colcir : MonoBehaviour
         GetComponent<CircleCollider2D>().isTrigger=true;
     }
     public bool state=false;
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
 
         state=other.gameObject.tag=="TileMap"||other.gameObject.tag=="Turret";
@@ -22,5 +22,22 @@ public class colcir : MonoBehaviour
         {
         state=false;
     }}
+
+    
+
+    private void OnDrawGizmos()
+    {
+        if(state)
+        {
+            Gizmos.color=Color.red;
+        }else
+        {
+            Gizmos.color=Color.blue;
+        }
+        Gizmos.DrawSphere(GetComponent<CircleCollider2D>().transform.position,GetComponent<CircleCollider2D>().radius);
+
+
+    }
+
 
 }

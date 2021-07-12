@@ -18,5 +18,5 @@ EditorBuildSettings:
     path: "Assets/\u30B7\u30FC\u30F3/\u6885\u6751/Level2.unity"
     guid: 8de2e24668bf8e64f9ea309331f483df
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: b5077f0eee6a74948963299d3becca6f,
+    com.unity.input.settings: {fileID: 11400000, guid: e733284c060d8db1f85fa96d2732f953,
       type: 2}

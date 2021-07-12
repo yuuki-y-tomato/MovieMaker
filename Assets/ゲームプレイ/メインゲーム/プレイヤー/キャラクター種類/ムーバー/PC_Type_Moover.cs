@@ -210,7 +210,7 @@ public class PC_Type_Moover : PC_Base
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Usable")
-        {
+        {   
             UseTarget = other.gameObject;
             Usable = true;
 
