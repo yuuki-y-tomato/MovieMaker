@@ -29,6 +29,9 @@ public class Clapper_Editor : Editor
             case DisplayCategory.GP:
              DisplayGP();
             break;
+            case DisplayCategory.Replay:
+        DisplayReplay();
+            break;
         }
     
     
@@ -43,8 +46,13 @@ public class Clapper_Editor : Editor
     }
 
 
+    void DisplayReplay()
+    {
+    }
     void DisplayComponents()
     {
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("ReplayParent"));
+ 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Top"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Bottom"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("ReadyParent"));

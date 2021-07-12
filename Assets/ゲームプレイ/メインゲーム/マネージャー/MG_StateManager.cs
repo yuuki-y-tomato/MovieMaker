@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class MG_StateManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -22,8 +22,9 @@ public class MG_StateManager : MonoBehaviour
     public int Takes;
     public int Actors;
 
+    public Action OnReplay;
 
-    void Start()
+    public void Start()
     {
 
         Takes = 0;
@@ -44,6 +45,10 @@ public class MG_StateManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             RestartScene();
+        }
+        if(state==States.Replay&&!fading)
+        {
+            TL_TimeLineMng.run(true);
         }
     }
 
@@ -100,12 +105,12 @@ public class MG_StateManager : MonoBehaviour
                 b.ResetInput();
                 b.completed = false;
             }
-                    
+            OnReplay?.Invoke();
+
             FindObjectOfType<Camera>().GetComponent<CAM_Gameplay>().isactive = false;
             FindObjectOfType<Camera>().GetComponent<CAM_Replay>().isactive = true;
             TL_TimeLineMng.ResetTimer();
-
-
+            TL_TimeLineMng.run(true);
             StartCoroutine(ChangeState(States.Replay));
 
         }
